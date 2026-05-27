@@ -1,0 +1,21 @@
+{
+  "name": "K. Smithurst Building Contractors Ltd",
+  "short_name": "K. Smithurst",
+  "description": "Belper-based building contractors with over 30 years of experience across Derbyshire.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E63329",
+  "icons": [
+    {
+      "src": "/assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
