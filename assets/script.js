@@ -84,3 +84,41 @@
     });
   }
 })();
+
+// Reviews slider — prev/next on desktop, swipe on mobile (native scroll-snap)
+(function() {
+  const sliders = document.querySelectorAll('.reviews-slider');
+  sliders.forEach(slider => {
+    const track = slider.querySelector('.reviews-grid');
+    const prev = slider.querySelector('.slider-btn.prev');
+    const next = slider.querySelector('.slider-btn.next');
+    const controls = slider.querySelector('.slider-controls');
+    if (!track || !prev || !next) return;
+
+    const updateState = () => {
+      // Hide controls when no scrolling needed
+      const overflows = track.scrollWidth > track.clientWidth + 2;
+      if (controls) controls.classList.toggle('hidden', !overflows);
+      prev.disabled = track.scrollLeft <= 10;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10;
+    };
+    const stepBy = (dir) => {
+      const card = track.querySelector('.review-card');
+      if (!card) return;
+      const styles = getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || 0);
+      track.scrollBy({ left: dir * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+      // Smooth scroll's `scroll` events don't fire reliably across browsers,
+      // so update state ourselves on a short tick + after the animation
+      // should have settled.
+      requestAnimationFrame(updateState);
+      setTimeout(updateState, 450);
+    };
+    prev.addEventListener('click', () => stepBy(-1));
+    next.addEventListener('click', () => stepBy(1));
+    track.addEventListener('scroll', updateState, { passive: true });
+    window.addEventListener('resize', updateState);
+    updateState();
+  });
+})();
+

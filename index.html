@@ -949,6 +949,55 @@ footer {
 /* Reveal animations on scroll */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
+
+/* --- Reviews slider --- */
+.reviews-slider { position: relative; }
+.reviews-grid {
+  display: grid !important;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(50% - 14px);
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 4px 12px;
+}
+.reviews-grid::-webkit-scrollbar { display: none; }
+.review-card { scroll-snap-align: start; }
+.slider-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.slider-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e6e1d7;
+  color: #1E2D6B;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(20,22,28,0.06), 0 1px 3px rgba(20,22,28,0.08);
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+}
+.slider-btn:hover:not(:disabled) {
+  background: #E63329;
+  color: #ffffff;
+  border-color: #E63329;
+  transform: translateY(-1px);
+}
+.slider-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.slider-btn svg { width: 18px; height: 18px; }
+.slider-controls.hidden { display: none; }
+@media (max-width: 800px) {
+  .reviews-grid { grid-auto-columns: 100%; }
+}
+
 </style>
 <!-- SEO:BEGIN -->
 <link rel="canonical" href="https://ksbuildingservices.co.uk/">
@@ -1297,7 +1346,8 @@ footer {
       <p>Real reviews from real Derbyshire homeowners.</p>
     </div>
 
-    <div class="reviews-grid">
+    <div class="reviews-slider">
+      <div class="reviews-grid">
       <div class="review-card reveal">
         <div class="quote-mark">"</div>
         <div class="review-stars">
@@ -1341,6 +1391,15 @@ footer {
           </span>
         </div>
       </div>
+    </div>
+      <div class="slider-controls">
+    <button class="slider-btn prev" aria-label="Previous review">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-btn next" aria-label="Next review">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
     </div>
   </div>
 </section>
@@ -1636,5 +1695,40 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
+<script>
+// Reviews slider — prev/next on desktop, swipe on mobile (native scroll-snap)
+(function() {
+  const sliders = document.querySelectorAll('.reviews-slider');
+  sliders.forEach(slider => {
+    const track = slider.querySelector('.reviews-grid');
+    const prev = slider.querySelector('.slider-btn.prev');
+    const next = slider.querySelector('.slider-btn.next');
+    const controls = slider.querySelector('.slider-controls');
+    if (!track || !prev || !next) return;
+
+    const updateState = () => {
+      // Hide controls when no scrolling needed
+      const overflows = track.scrollWidth > track.clientWidth + 2;
+      if (controls) controls.classList.toggle('hidden', !overflows);
+      prev.disabled = track.scrollLeft <= 10;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10;
+    };
+    const stepBy = (dir) => {
+      const card = track.querySelector('.review-card');
+      if (!card) return;
+      const styles = getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || 0);
+      track.scrollBy({ left: dir * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+      requestAnimationFrame(updateState);
+      setTimeout(updateState, 450);
+    };
+    prev.addEventListener('click', () => stepBy(-1));
+    next.addEventListener('click', () => stepBy(1));
+    track.addEventListener('scroll', updateState, { passive: true });
+    window.addEventListener('resize', updateState);
+    updateState();
+  });
+})();
+</script>
 </body>
 </html>
