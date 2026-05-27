@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Recent building projects across Derbyshire by K. Smithurst Building Contractors Ltd — house extensions, new builds, refurbishments, commercial developments and external works.">
+<meta name="keywords" content="builder portfolio Derbyshire, building projects Belper, extensions Derby, new builds, refurbishments">
+<meta property="og:title" content="Projects | K. Smithurst Building Contractors Ltd">
+<meta property="og:description" content="A selection of recent builds across Derbyshire — extensions, new builds, refurbishments, commercial and external works.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<title>Projects | K. Smithurst Building Contractors Ltd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .page-banner::before { background-image: url('assets/hero-3.jpeg'); }
+</style>
+</head>
+<body>
+
+<!-- =================== UTILITY BAR =================== -->
+<div class="utility-bar">
+  <div class="utility-bar-inner">
+    <div class="utility-left">
+      <span class="utility-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Belper, Derbyshire
+      </span>
+      <span class="utility-item" style="display: none;" id="hours-display">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span id="hours-text"></span>
+      </span>
+    </div>
+    <a href="tel:01773828516" class="utility-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      01773 828516
+    </a>
+  </div>
+</div>
+
+<!-- =================== NAVBAR =================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="K. Smithurst Building Contractors — home">
+      <img src="assets/logo.webp" alt="K. Smithurst Building Contractors Ltd">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="tel:01773828516" class="call-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="call-btn-label">Call now</span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- =================== PAGE BANNER =================== -->
+<header class="page-banner">
+  <div class="page-banner-inner">
+    <span class="eyebrow">Recent work</span>
+    <h1>Projects across<br>Derbyshire.</h1>
+    <p>A selection of recently completed builds — from large two-storey extensions and full new homes through to bespoke joinery and external works. Every project delivered to the agreed budget and to the highest specification.</p>
+    <div class="crumbs">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+      <span>Projects</span>
+    </div>
+  </div>
+</header>
+
+<!-- =================== PROJECT GALLERY =================== -->
+<section class="gallery-page">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2>A track record <br>of <span style="color: var(--red);">finished builds.</span></h2>
+      <p>Use the filters below to narrow by project type. Want to see something specific? Get in touch — we have many more references we can share on request.</p>
+    </div>
+
+    <div class="proj-tabs reveal">
+      <button class="proj-tab active" data-filter="all">All work</button>
+      <button class="proj-tab" data-filter="extension">Extensions</button>
+      <button class="proj-tab" data-filter="new-build">New builds</button>
+      <button class="proj-tab" data-filter="refurbishment">Refurbishments</button>
+      <button class="proj-tab" data-filter="commercial">Commercial</button>
+      <button class="proj-tab" data-filter="external">External</button>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-item reveal" data-tag="new-build">
+        <img src="assets/hero-1.jpeg" alt="Contemporary new build at dusk handover" loading="lazy">
+        <div class="caption">
+          <span class="tag">New Build</span>
+          <div class="title">Contemporary new build — dusk handover</div>
+          <div class="loc">Derbyshire</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="refurbishment">
+        <img src="assets/hero-2.jpeg" alt="Open-plan kitchen and living refurbishment" loading="lazy">
+        <div class="caption">
+          <span class="tag">Refurbishment</span>
+          <div class="title">Open-plan kitchen &amp; living refurbishment</div>
+          <div class="loc">Belper</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="commercial">
+        <img src="assets/hero-3.jpeg" alt="Lockwood commercial development" loading="lazy">
+        <div class="caption">
+          <span class="tag">Commercial</span>
+          <div class="title">Lockwood commercial development</div>
+          <div class="loc">Derbyshire</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="external">
+        <img src="assets/gallery-04.jpeg" alt="Bespoke oak porch" loading="lazy">
+        <div class="caption">
+          <span class="tag">External</span>
+          <div class="title">Bespoke oak porch</div>
+          <div class="loc">Belper</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="refurbishment">
+        <img src="assets/gallery-05.jpeg" alt="Open-tread oak staircase and hall" loading="lazy">
+        <div class="caption">
+          <span class="tag">Refurbishment</span>
+          <div class="title">Open-tread oak staircase &amp; hall</div>
+          <div class="loc">Derbyshire</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="extension">
+        <img src="assets/gallery-06.jpeg" alt="Two-storey side extension" loading="lazy">
+        <div class="caption">
+          <span class="tag">Extension</span>
+          <div class="title">Two-storey side extension</div>
+          <div class="loc">Ambergate</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="external">
+        <img src="assets/gallery-07.jpeg" alt="Boundary walls and electric gates" loading="lazy">
+        <div class="caption">
+          <span class="tag">External</span>
+          <div class="title">Boundary walls &amp; electric gates</div>
+          <div class="loc">Derbyshire</div>
+        </div>
+      </div>
+      <div class="proj-item reveal" data-tag="commercial">
+        <img src="assets/gallery-09.jpeg" alt="Brick and glass commercial build" loading="lazy">
+        <div class="caption">
+          <span class="tag">Commercial</span>
+          <div class="title">Brick &amp; glass build</div>
+          <div class="loc">Derby</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FEATURED CASE STUDY =================== -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-head reveal" style="max-width: 720px;">
+      <span class="eyebrow">Featured project</span>
+      <h2>Stone annex <br>in <span class="accent">Ambergate.</span></h2>
+      <p>One of our most-loved projects — a full stone-built annex extending a listed building. Designed and built so the new structure blends seamlessly with the original.</p>
+    </div>
+    <div class="svc-block reveal" style="border-bottom: none; padding-top: 0;">
+      <div class="svc-img" style="background-image: url('assets/hero-1.jpeg'); aspect-ratio: 5/4;"></div>
+      <div class="svc-text">
+        <div class="svc-num">Case study</div>
+        <h3>A full stone <span class="accent">annex build.</span></h3>
+        <blockquote style="border-left: 3px solid var(--red); padding-left: 20px; margin: 0 0 20px; font-style: italic; color: var(--ink); font-size: 16px; line-height: 1.7;">
+          "Kev and his team completed the whole project from start to finish and I'm absolutely delighted with the finished result. The build quality is superb and blends into the listed building at the side of it seamlessly. The project was delivered to the agreed budget and I personally can't recommend Kev and his highly skilled team enough."
+          <div style="margin-top: 14px; font-style: normal; font-size: 13px; color: var(--ink-soft);">Ray Walters, Ambergate</div>
+        </blockquote>
+        <ul>
+          <li>Stone-built annex</li>
+          <li>Adjoining listed building</li>
+          <li>Full project management</li>
+          <li>Delivered to budget</li>
+          <li>Highest build quality</li>
+          <li>Seamless blend</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">
+          Start your project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CTA STRIP =================== -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Got something <span class="accent">similar</span> in mind?</h2>
+    <p>We're happy to walk you through more recent projects and share references on request. Get in touch and we'll arrange a site visit.</p>
+    <div class="actions">
+      <a href="tel:01773828516" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        01773 828516
+      </a>
+      <a href="contact.html" class="btn btn-ghost">Get a quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.webp" alt="K. Smithurst Building Contractors Ltd">
+        </div>
+        <p>Belper-based building contractors with over 30 years of experience across Derbyshire. House extensions, new builds, loft conversions, refurbishments and groundworks — every project managed from start to finish.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#extensions">House Extensions</a></li>
+          <li><a href="services.html#loft-conversions">Loft Conversions</a></li>
+          <li><a href="services.html#new-builds">New Builds</a></li>
+          <li><a href="services.html#refurbishments">Refurbishments</a></li>
+          <li><a href="services.html#commercial">Commercial</a></li>
+          <li><a href="services.html#groundworks">Groundworks</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html#reviews">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="tel:01773828516">01773 828516</a></li>
+          <li><a href="https://wa.me/441773828516" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100057609452642" target="_blank" rel="noopener">Facebook</a></li>
+          <li>Belper, Derbyshire</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> K. Smithurst Building Contractors Ltd. Reg in England &amp; Wales No. 04362330.</div>
+      <div>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/441773828516" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg>
+</a>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
