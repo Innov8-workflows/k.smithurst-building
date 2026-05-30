@@ -1577,6 +1577,50 @@ footer {
   .acc-logo, .acc-logo img { max-height: 44px; height: 44px; }
 }
 
+
+/* --- Footer accreditation strip --- */
+.footer-acc {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.footer-acc-label {
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.footer-acc-logos {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-acc-logo {
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.footer-acc-logo:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.footer-acc-logo img { height: 34px; width: auto; display: block; }
+
+@media (max-width: 640px) {
+  .footer-acc { padding: 22px 0; gap: 18px; flex-direction: column; }
+  .footer-acc-logos { gap: 10px; }
+  .footer-acc-logo { padding: 6px 10px; height: 42px; }
+  .footer-acc-logo img { height: 28px; }
+}
+
 </style>
 <!-- SEO:BEGIN -->
 <link rel="canonical" href="https://ksbuildingservices.co.uk/">
@@ -1829,6 +1873,83 @@ footer {
           Drag to compare
         </span>
       </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================== PROJECT GALLERY (recent work) =================== -->
+<section class="gallery" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color: #ff8a82;">Recent work</span>
+      <h2>Projects across <br><span style="color: var(--red);">Derbyshire.</span></h2>
+      <p>A selection of recently completed builds. Click through to the full portfolio for more before/after shots and case studies.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tile-feature reveal" style="background-image: url('assets/hero-1.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">New Build</span>
+          <div class="title">Contemporary new build &mdash; dusk handover</div>
+        </div>
+      </div>
+
+      <div class="gallery-item tile-wide reveal" style="background-image: url('assets/hero-2.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">Refurbishment</span>
+          <div class="title">Open-plan kitchen &amp; living refurbishment</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" style="background-image: url('assets/gallery-04.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">External</span>
+          <div class="title">Bespoke oak porch</div>
+        </div>
+      </div>
+
+      <div class="gallery-item tile-tall reveal" style="background-image: url('assets/gallery-05.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">Refurbishment</span>
+          <div class="title">Open-tread oak staircase &amp; hall</div>
+        </div>
+      </div>
+
+      <div class="gallery-item tile-wide reveal" style="background-image: url('assets/hero-3.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">Commercial</span>
+          <div class="title">Lockwood commercial development</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" style="background-image: url('assets/gallery-06.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">Extension</span>
+          <div class="title">Two-storey side extension</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" style="background-image: url('assets/gallery-07.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">External</span>
+          <div class="title">Boundary walls &amp; electric gates</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" style="background-image: url('assets/gallery-09.jpeg'); background-size: cover; background-position: center;">
+        <div class="caption">
+          <span class="tag">Commercial</span>
+          <div class="title">Brick &amp; glass build</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="projects.html" class="btn btn-primary" style="background: var(--red); color: #fff;">
+        View all projects
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -2277,6 +2398,21 @@ footer {
         </ul>
       </div>
     </div>
+    <div class="footer-acc">
+      <span class="footer-acc-label">Accredited members of</span>
+      <div class="footer-acc-logos">
+        <a class="footer-acc-logo" href="https://www.fsb.org.uk/" target="_blank" rel="noopener" aria-label="Federation of Small Businesses">
+          <img src="assets/accreditation01.jpg" alt="Federation of Small Businesses" loading="lazy">
+        </a>
+        <a class="footer-acc-logo" href="https://www.derbyshire.gov.uk/business/trading-standards/trusted-trader/" target="_blank" rel="noopener" aria-label="Trusted Trader — Derbyshire County Council">
+          <img src="assets/accreditation02.png" alt="Trusted Trader Derbyshire County Council" loading="lazy">
+        </a>
+        <a class="footer-acc-logo" href="https://www.constructionline.co.uk/" target="_blank" rel="noopener" aria-label="Constructionline Silver Member">
+          <img src="assets/accreditation03.png" alt="Constructionline Silver Member" loading="lazy">
+        </a>
+      </div>
+    </div>
+
     <div class="footer-bottom">
       <div>© <span id="year"></span> K. Smithurst Building Contractors Ltd. Reg in England &amp; Wales No. 04362330.</div>
       <div>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></div>

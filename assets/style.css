@@ -1348,3 +1348,46 @@ footer {
   .acc-logo, .acc-logo img { max-height: 44px; height: 44px; }
 }
 
+/* --- Footer accreditation strip --- */
+.footer-acc {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.footer-acc-label {
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.footer-acc-logos {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-acc-logo {
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.footer-acc-logo:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.footer-acc-logo img { height: 34px; width: auto; display: block; }
+
+@media (max-width: 640px) {
+  .footer-acc { padding: 22px 0; gap: 18px; flex-direction: column; }
+  .footer-acc-logos { gap: 10px; }
+  .footer-acc-logo { padding: 6px 10px; height: 42px; }
+  .footer-acc-logo img { height: 28px; }
+}
+
