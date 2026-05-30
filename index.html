@@ -1034,13 +1034,21 @@ footer {
   .hero-ctas { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
   .hero-ctas .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 14px; }
   .hero-eyebrow { font-size: 10px; padding: 6px 12px; letter-spacing: 0.12em; margin-bottom: 20px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
-  .hero-stat { padding: 18px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .hero-stat:nth-child(2n) { border-right: none; }
-  .hero-stat:nth-last-child(-n+2) { border-bottom: none; }
-  .hero-stat .num { font-size: 34px; }
-  .hero-stat .num small { font-size: 18px; }
-  .hero-stat .label { font-size: 11px; letter-spacing: 0.1em; margin-top: 4px; }
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background: rgba(13,22,56,0.65);
+  }
+  .hero-stat {
+    padding: 16px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-bottom: none;
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num { font-size: 30px; line-height: 1; }
+  .hero-stat .num small { font-size: 15px; margin-left: 1px; }
+  .hero-stat .label { font-size: 10px; letter-spacing: 0.08em; margin-top: 6px; line-height: 1.25; }
+  .hero-stat .label br { display: none; }
 
   /* Page banners (sub-pages) */
   .page-banner { min-height: 220px; }
