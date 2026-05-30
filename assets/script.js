@@ -45,7 +45,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Contact form → WhatsApp
+  // Contact form → opens email client with pre-filled message (mailto:)
   const submit = document.getElementById('submitForm');
   if (submit) {
     submit.addEventListener('click', function(e) {
@@ -59,13 +59,15 @@
         alert('Please fill in your name, phone number and a brief project description.');
         return;
       }
-      let msg = "Hi K. Smithurst, I'd like to enquire about a building project.\n\n";
-      msg += "Name: " + name + "\n";
-      msg += "Phone: " + phone + "\n";
-      if (email) msg += "Email: " + email + "\n";
-      if (service) msg += "Type of work: " + service + "\n";
-      msg += "\nProject details:\n" + message;
-      window.open("https://wa.me/441773828516?text=" + encodeURIComponent(msg), "_blank");
+      const subject = 'Website enquiry' + (service ? ' — ' + service : '');
+      let body = "Hi K. Smithurst,\n\nI'd like to enquire about a building project.\n\n";
+      body += "Name: " + name + "\n";
+      body += "Phone: " + phone + "\n";
+      if (email) body += "Email: " + email + "\n";
+      if (service) body += "Type of work: " + service + "\n";
+      body += "\nProject details:\n" + message;
+      window.location.href = 'mailto:info@ksbuildingservices.co.uk?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
 
