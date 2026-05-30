@@ -466,7 +466,8 @@
                (email ? "Email: " + email + "\n" : "") +
                (service ? "Type of work: " + service + "\n" : "") +
                "\nProject details:\n" + message;
-    window.location.href = 'mailto:info@ksbuildingservices.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    // TEMP: routed to jamie@innov8workflows.co.uk for live testing. Revert when done.
+    window.location.href = 'mailto:jamie@innov8workflows.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 })();
 </script>

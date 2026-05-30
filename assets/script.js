@@ -66,7 +66,9 @@
       if (email) body += "Email: " + email + "\n";
       if (service) body += "Type of work: " + service + "\n";
       body += "\nProject details:\n" + message;
-      window.location.href = 'mailto:info@ksbuildingservices.co.uk?subject=' +
+      // TEMP: routed to jamie@innov8workflows.co.uk for live testing.
+      // Revert to info@ksbuildingservices.co.uk once Jay has finished testing.
+      window.location.href = 'mailto:jamie@innov8workflows.co.uk?subject=' +
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
