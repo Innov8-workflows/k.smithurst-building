@@ -126,3 +126,84 @@
   });
 })();
 
+// Before/After slider — pointer-driven reveal handle
+(function() {
+  const sliders = document.querySelectorAll('.ba-slider');
+  sliders.forEach(slider => {
+    const mask = slider.querySelector('.ba-mask-before');
+    const beforeImg = slider.querySelector('.ba-mask-before .ba-img');
+    const handle = slider.querySelector('.ba-handle');
+    if (!mask || !handle) return;
+
+    let dragging = false;
+
+    const setPct = (pct) => {
+      pct = Math.max(0, Math.min(100, pct));
+      mask.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    };
+
+    const sizeBeforeImg = () => {
+      // The before image inside .ba-mask-before is sized in `vw` by default;
+      // we explicitly size it to the slider's actual width so the visible
+      // slice always aligns pixel-perfect with the after image behind it.
+      if (beforeImg) beforeImg.style.width = slider.clientWidth + 'px';
+    };
+
+    const updateFromEvent = (e) => {
+      const rect = slider.getBoundingClientRect();
+      const clientX = e.clientX !== undefined ? e.clientX :
+                      (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      setPct(pct);
+    };
+
+    // Pointer events cover mouse / touch / pen
+    slider.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      slider.setPointerCapture(e.pointerId);
+      updateFromEvent(e);
+    });
+    slider.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      updateFromEvent(e);
+    });
+    const endDrag = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    slider.addEventListener('pointerup', endDrag);
+    slider.addEventListener('pointercancel', endDrag);
+    slider.addEventListener('pointerleave', endDrag);
+
+    // Click anywhere jumps the handle there (without dragging)
+    // (Already handled by pointerdown above.)
+
+    sizeBeforeImg();
+    window.addEventListener('resize', sizeBeforeImg);
+
+    // One-time hint animation on first view
+    let played = false;
+    const playHint = () => {
+      if (played) return; played = true;
+      let pct = 50, dir = 1, steps = 0;
+      const id = setInterval(() => {
+        pct += dir * 2;
+        if (pct >= 64 || pct <= 36) dir = -dir;
+        setPct(pct);
+        if (++steps > 28) { clearInterval(id); setPct(50); }
+      }, 28);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => { if (en.isIntersecting) { playHint(); io.unobserve(en.target); } });
+      }, { threshold: 0.5 });
+      io.observe(slider);
+    } else {
+      setTimeout(playHint, 800);
+    }
+  });
+})();
+

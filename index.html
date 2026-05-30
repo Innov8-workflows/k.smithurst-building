@@ -1200,6 +1200,122 @@ footer {
   .nav-logo img { height: 38px; }
 }
 
+
+/* --- Before/After slider --- */
+.ba-section { background: var(--cream, #f7f4ee); padding: 88px 0; }
+.ba-section .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.ba-wrap { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1100px; margin: 0 auto; }
+.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1495 / 1052;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -12px rgba(20,22,28,0.22), 0 8px 16px -8px rgba(20,22,28,0.10);
+  background: #14161c;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y; /* allow vertical page scroll, capture horizontal drag */
+  cursor: ew-resize;
+}
+.ba-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.ba-img-after { z-index: 1; }
+.ba-mask-before {
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  z-index: 2;
+  overflow: hidden;
+  will-change: width;
+}
+.ba-mask-before .ba-img {
+  width: 100vw; /* will be overridden via JS to slider width */
+  max-width: none;
+}
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 4;
+  width: 2px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(20,22,28,0.15), 0 8px 24px rgba(0,0,0,0.35);
+  transform: translateX(-50%);
+  will-change: left;
+}
+.ba-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--red, #E63329);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 0 4px rgba(255,255,255,0.85);
+  pointer-events: none;
+}
+.ba-knob svg { width: 18px; height: 18px; display: block; }
+.ba-tag {
+  position: absolute;
+  top: 18px;
+  z-index: 3;
+  padding: 6px 12px;
+  background: rgba(13, 22, 56, 0.85);
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+.ba-tag-before { left: 18px; }
+.ba-tag-after { right: 18px; }
+.ba-caption {
+  text-align: center;
+  color: var(--ink-soft, #4a4f5a);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 14px;
+}
+.ba-caption strong { color: var(--navy, #1E2D6B); font-weight: 700; }
+.ba-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  color: var(--red, #E63329);
+}
+
+@media (max-width: 640px) {
+  .ba-section { padding: 48px 0; }
+  .ba-section .container { padding: 0 16px; }
+  .ba-knob { width: 46px; height: 46px; }
+  .ba-knob svg { width: 16px; height: 16px; }
+  .ba-tag { font-size: 11px; padding: 4px 10px; top: 12px; }
+  .ba-tag-before { left: 12px; }
+  .ba-tag-after { right: 12px; }
+  .ba-caption { font-size: 13px; }
+  .ba-hint { display: none; }
+}
+
 </style>
 <!-- SEO:BEGIN -->
 <link rel="canonical" href="https://ksbuildingservices.co.uk/">
@@ -1480,6 +1596,39 @@ footer {
           <div class="title">Detached brick outbuilding</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba-section" id="before-after">
+  <div class="container">
+    <div class="section-head reveal" style="margin: 0 auto 40px; text-align: center; max-width: 720px;">
+      <span class="eyebrow">Before &amp; after</span>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,60px);color:var(--navy);line-height:0.95;margin:12px 0 16px;letter-spacing:0.01em;">From this <br>to <span style="color:var(--red);">this.</span></h2>
+      <p style="font-size:17px;color:var(--ink-soft);max-width:600px;margin:0 auto;line-height:1.65;">Drag the slider to reveal what a single commercial project can really do for a property. More transformations from across our portfolio coming soon.</p>
+    </div>
+    <div class="ba-wrap reveal">
+      <div class="ba-slider" data-project="commercial-dental-surgery">
+        <img class="ba-img ba-img-after" src="assets/ba-commercial-1-after.jpg" alt="Commercial dental surgery extension — after K. Smithurst Building Contractors completed the build" loading="lazy">
+        <div class="ba-mask-before">
+          <img class="ba-img ba-img-before" src="assets/ba-commercial-1-before.jpg" alt="Commercial dental surgery — before the K. Smithurst extension" loading="lazy">
+        </div>
+        <div class="ba-handle">
+          <div class="ba-knob" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 6 15 12 9 18"/></svg>
+          </div>
+        </div>
+        <div class="ba-tag ba-tag-before">Before</div>
+        <div class="ba-tag ba-tag-after">After</div>
+      </div>
+      <p class="ba-caption">
+        <strong>Commercial dental surgery extension</strong> · Derbyshire
+        <span class="ba-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="14" height="14" aria-hidden="true"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+          Drag to compare
+        </span>
+      </p>
     </div>
   </div>
 </section>
@@ -1932,6 +2081,88 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     track.addEventListener('scroll', updateState, { passive: true });
     window.addEventListener('resize', updateState);
     updateState();
+  });
+})();
+</script>
+<script>
+// Before/After slider — pointer-driven reveal handle
+(function() {
+  const sliders = document.querySelectorAll('.ba-slider');
+  sliders.forEach(slider => {
+    const mask = slider.querySelector('.ba-mask-before');
+    const beforeImg = slider.querySelector('.ba-mask-before .ba-img');
+    const handle = slider.querySelector('.ba-handle');
+    if (!mask || !handle) return;
+
+    let dragging = false;
+
+    const setPct = (pct) => {
+      pct = Math.max(0, Math.min(100, pct));
+      mask.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    };
+
+    const sizeBeforeImg = () => {
+      // The before image inside .ba-mask-before is sized in `vw` by default;
+      // we explicitly size it to the slider's actual width so the visible
+      // slice always aligns pixel-perfect with the after image behind it.
+      if (beforeImg) beforeImg.style.width = slider.clientWidth + 'px';
+    };
+
+    const updateFromEvent = (e) => {
+      const rect = slider.getBoundingClientRect();
+      const clientX = e.clientX !== undefined ? e.clientX :
+                      (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      setPct(pct);
+    };
+
+    // Pointer events cover mouse / touch / pen
+    slider.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      slider.setPointerCapture(e.pointerId);
+      updateFromEvent(e);
+    });
+    slider.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      updateFromEvent(e);
+    });
+    const endDrag = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    slider.addEventListener('pointerup', endDrag);
+    slider.addEventListener('pointercancel', endDrag);
+    slider.addEventListener('pointerleave', endDrag);
+
+    // Click anywhere jumps the handle there (without dragging)
+    // (Already handled by pointerdown above.)
+
+    sizeBeforeImg();
+    window.addEventListener('resize', sizeBeforeImg);
+
+    // One-time hint animation on first view
+    let played = false;
+    const playHint = () => {
+      if (played) return; played = true;
+      let pct = 50, dir = 1, steps = 0;
+      const id = setInterval(() => {
+        pct += dir * 2;
+        if (pct >= 64 || pct <= 36) dir = -dir;
+        setPct(pct);
+        if (++steps > 28) { clearInterval(id); setPct(50); }
+      }, 28);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => { if (en.isIntersecting) { playHint(); io.unobserve(en.target); } });
+      }, { threshold: 0.5 });
+      io.observe(slider);
+    } else {
+      setTimeout(playHint, 800);
+    }
   });
 })();
 </script>
