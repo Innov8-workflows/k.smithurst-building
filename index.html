@@ -1528,6 +1528,55 @@ footer {
 @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; } }
 @media (max-width: 600px) { .process-grid { grid-template-columns: 1fr; } }
 
+
+/* --- Accreditation strip --- */
+.acc-strip {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule, #e6e1d7);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px 40px;
+}
+.acc-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft, #4a4f5a);
+  white-space: nowrap;
+}
+.acc-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px 40px;
+}
+.acc-logo {
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.acc-logo img {
+  max-height: 56px;
+  width: auto;
+  display: block;
+  filter: saturate(0.85);
+}
+.acc-logo:hover img { filter: saturate(1); transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .acc-strip { margin-top: 24px; padding-top: 22px; gap: 18px 24px; }
+  .acc-label { font-size: 10px; letter-spacing: 0.14em; }
+  .acc-logos { gap: 18px 24px; }
+  .acc-logo, .acc-logo img { max-height: 44px; height: 44px; }
+}
+
 </style>
 <!-- SEO:BEGIN -->
 <link rel="canonical" href="https://ksbuildingservices.co.uk/">
@@ -1548,7 +1597,7 @@ footer {
 <meta name="twitter:image" content="https://ksbuildingservices.co.uk/assets/og-image.jpg">
 <meta name="geo.region" content="GB-DBY">
 <meta name="geo.placename" content="Belper, Derbyshire">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","@id":"https://ksbuildingservices.co.uk/#organization","name":"K. Smithurst Building Contractors Ltd","alternateName":"K. Smithurst Builders","url":"https://ksbuildingservices.co.uk/","logo":"https://ksbuildingservices.co.uk/assets/favicon-512.png","image":"https://ksbuildingservices.co.uk/assets/og-image.jpg","telephone":"+441773828516","email":"info@ksbuildingservices.co.uk","priceRange":"\u00a3\u00a3","address":{"@type":"PostalAddress","addressLocality":"Belper","addressRegion":"Derbyshire","addressCountry":"GB"},"areaServed":[{"@type":"City","name":"Belper"},{"@type":"City","name":"Derby"},{"@type":"City","name":"Ripley"},{"@type":"City","name":"Alfreton"},{"@type":"City","name":"Matlock"},{"@type":"City","name":"Bakewell"},{"@type":"City","name":"Ambergate"},{"@type":"City","name":"Heanor"},{"@type":"City","name":"Duffield"},{"@type":"AdministrativeArea","name":"Derbyshire"}],"founder":{"@type":"Person","name":"Kevin Smithurst"},"foundingDate":"1991","vatID":"GB 04362330","identifier":"Company No. 04362330","knowsAbout":["House extensions","Loft conversions","Garage conversions","New house builds","Commercial building developments","House refurbishments","External building work","Landscaping"],"memberOf":[{"@type":"Organization","name":"Federation of Small Businesses"},{"@type":"Organization","name":"Trusted Trader"}],"sameAs":["https://www.facebook.com/profile.php?id=100057609452642"],"contactPoint":{"@type":"ContactPoint","telephone":"+441773828516","contactType":"Customer Service","areaServed":"GB","availableLanguage":["en"]},"openingHours":["Mo-Fr 08:00-17:00","Sa 08:00-13:00"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","@id":"https://ksbuildingservices.co.uk/#organization","name":"K. Smithurst Building Contractors Ltd","alternateName":"K. Smithurst Builders","url":"https://ksbuildingservices.co.uk/","logo":"https://ksbuildingservices.co.uk/assets/favicon-512.png","image":"https://ksbuildingservices.co.uk/assets/og-image.jpg","telephone":"+441773828516","email":"info@ksbuildingservices.co.uk","priceRange":"\u00a3\u00a3","address":{"@type":"PostalAddress","addressLocality":"Belper","addressRegion":"Derbyshire","addressCountry":"GB"},"areaServed":[{"@type":"City","name":"Belper"},{"@type":"City","name":"Derby"},{"@type":"City","name":"Ripley"},{"@type":"City","name":"Alfreton"},{"@type":"City","name":"Matlock"},{"@type":"City","name":"Bakewell"},{"@type":"City","name":"Ambergate"},{"@type":"City","name":"Heanor"},{"@type":"City","name":"Duffield"},{"@type":"AdministrativeArea","name":"Derbyshire"}],"founder":{"@type":"Person","name":"Kevin Smithurst"},"foundingDate":"1991","vatID":"GB 04362330","identifier":"Company No. 04362330","knowsAbout":["House extensions","Loft conversions","Garage conversions","New house builds","Commercial building developments","House refurbishments","External building work","Landscaping"],"memberOf":[{"@type":"Organization","name":"Federation of Small Businesses"},{"@type":"Organization","name":"Trusted Trader"},{"@type":"Organization","name":"Constructionline"}],"sameAs":["https://www.facebook.com/profile.php?id=100057609452642"],"contactPoint":{"@type":"ContactPoint","telephone":"+441773828516","contactType":"Customer Service","areaServed":"GB","availableLanguage":["en"]},"openingHours":["Mo-Fr 08:00-17:00","Sa 08:00-13:00"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://ksbuildingservices.co.uk/","name":"K. Smithurst Building Contractors Ltd"}</script>
 <!-- SEO:END -->
 </head>
@@ -1664,6 +1713,22 @@ footer {
         <div class="trust-label">No-obligation written quotes for every project</div>
       </div>
     </div>
+  
+    <div class="acc-strip">
+      <span class="acc-label">Accredited members of</span>
+      <div class="acc-logos">
+        <a class="acc-logo" href="https://www.fsb.org.uk/" target="_blank" rel="noopener" aria-label="Federation of Small Businesses">
+          <img src="assets/accreditation01.jpg" alt="Federation of Small Businesses" loading="lazy">
+        </a>
+        <a class="acc-logo" href="https://www.derbyshire.gov.uk/business/trading-standards/trusted-trader/" target="_blank" rel="noopener" aria-label="Trusted Trader — Derbyshire County Council">
+          <img src="assets/accreditation02.png" alt="Trusted Trader Derbyshire County Council" loading="lazy">
+        </a>
+        <a class="acc-logo" href="https://www.constructionline.co.uk/" target="_blank" rel="noopener" aria-label="Constructionline Silver Member">
+          <img src="assets/accreditation03.png" alt="Constructionline Silver Member" loading="lazy">
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
