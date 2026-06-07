@@ -199,6 +199,7 @@
           <input type="hidden" name="access_key" value="c28b758b-d6da-4538-a432-06a42bc4d1ce">
           <input type="hidden" name="subject" value="New enquiry from ksbuildingservices.co.uk">
           <input type="hidden" name="from_name" value="K. Smithurst Website">
+          <input type="hidden" name="replyto" value="">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
 
           <div class="form-grid-2">
@@ -213,8 +214,8 @@
           </div>
 
           <div class="form-row">
-            <label for="email">Email <span style="color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0;">(optional)</span></label>
-            <input type="email" id="email" name="email">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
           </div>
 
           <div class="form-row">
@@ -481,6 +482,11 @@
     if (btnLabel) btnLabel.textContent = 'Sending…';
     result.textContent = '';
     result.className = 'form-result';
+
+    // Copy the user's email into the replyto hidden so Kevin can hit Reply
+    var emailInput = form.querySelector('input[name="email"]');
+    var replyto = form.querySelector('input[name="replyto"]');
+    if (emailInput && replyto) replyto.value = emailInput.value.trim();
 
     var service = (form.querySelector('[name="service"]') || {}).value;
     if (service) {
