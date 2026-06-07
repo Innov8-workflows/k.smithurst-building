@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leave a quick review for K. Smithurst Building Contractors Ltd — a Belper-based building company. Takes about 30 seconds and helps other Derbyshire homeowners find us.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#E63329">
+<title>Leave a Review | K. Smithurst Building Contractors Ltd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<style>
+  /* =====================================================
+     Review landing page — focused single-CTA layout
+     ===================================================== */
+  body { background: var(--cream); }
+
+  /* Hero */
+  .rv-hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 96px 24px 80px;
+  }
+  .rv-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: url('../assets/hero-1.jpeg') center/cover no-repeat;
+    filter: brightness(0.78);
+  }
+  .rv-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(13,22,56,0.62) 0%, rgba(13,22,56,0.85) 100%);
+  }
+  .rv-hero-inner { max-width: 720px; margin: 0 auto; }
+  .rv-logo {
+    display: inline-block;
+    background: #fff;
+    padding: 14px 22px;
+    border-radius: 6px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-md);
+  }
+  .rv-logo img { height: 56px; width: auto; display: block; }
+  .rv-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.5);
+  }
+  .rv-hero h1 .accent { color: var(--red); }
+  .rv-hero p.rv-lede {
+    font-size: clamp(15px, 1.5vw, 18px);
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  }
+
+  /* Primary CTA card sits over the hero / cream join */
+  .rv-cta-wrap {
+    max-width: 720px;
+    margin: -56px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .rv-cta-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 44px 36px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--rule);
+  }
+  .rv-cta-card .eyebrow {
+    color: var(--red);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .rv-cta-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4.2vw, 48px);
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    margin-bottom: 16px;
+  }
+  .rv-cta-card h2 .accent { color: var(--red); }
+  .rv-cta-card p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+
+  /* Buttons */
+  .rv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 28px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    min-width: 280px;
+  }
+  .rv-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .rv-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .rv-btn--google {
+    background: #fff;
+    color: #14161c;
+    border: 1px solid var(--rule);
+  }
+  .rv-btn--google:hover { border-color: #4285F4; }
+  .rv-btn--facebook {
+    background: #1877F2;
+    color: #fff;
+    border: none;
+  }
+  .rv-btn--facebook:hover { background: #145FCC; }
+  .rv-cta-meta {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* Tags */
+  .rv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 36px auto 0;
+    max-width: 640px;
+  }
+  .rv-tag {
+    display: inline-block;
+    background: rgba(30,45,107,0.06);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(30,45,107,0.12);
+  }
+
+  /* How it works */
+  .rv-how {
+    padding: 80px 24px 60px;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .rv-how h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 44px);
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+  }
+  .rv-how .rv-sub {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .rv-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    counter-reset: steps;
+    text-align: left;
+  }
+  .rv-step {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    padding: 22px 22px 22px 24px;
+    counter-increment: steps;
+  }
+  .rv-step::before {
+    content: counter(steps, decimal-leading-zero);
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .rv-step h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  .rv-step p { color: var(--ink-soft); font-size: 14px; line-height: 1.55; margin: 0; }
+  .rv-meta {
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  /* Alt platform */
+  .rv-alt {
+    padding: 56px 24px;
+    text-align: center;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+  }
+  .rv-alt h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 3vw, 32px);
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+  .rv-alt p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 22px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Thanks */
+  .rv-thanks {
+    padding: 64px 24px 80px;
+    text-align: center;
+    background: var(--cream);
+  }
+  .rv-thanks h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3.6vw, 40px);
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .rv-thanks h3 .accent { color: var(--red); }
+  .rv-thanks p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+  }
+  .rv-thanks .rv-signature {
+    margin-top: 18px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 0.1em;
+  }
+
+  /* Slim footer (single-line credit, no full footer) */
+  .rv-footer {
+    padding: 24px 24px 36px;
+    text-align: center;
+    background: var(--cream);
+    border-top: 1px solid var(--rule);
+    color: rgba(20,22,28,0.55);
+    font-size: 12.5px;
+  }
+  .rv-footer a { color: var(--navy); font-weight: 600; }
+  .rv-footer a:hover { color: var(--red); }
+  .rv-footer .rv-call { color: var(--navy); font-weight: 700; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .rv-hero { padding: 64px 20px 80px; min-height: 380px; }
+    .rv-logo { padding: 10px 16px; margin-bottom: 24px; }
+    .rv-logo img { height: 44px; }
+    .rv-cta-wrap { padding: 0 16px; margin-top: -48px; }
+    .rv-cta-card { padding: 32px 22px; }
+    .rv-btn { min-width: 0; width: 100%; padding: 16px 20px; font-size: 15px; }
+    .rv-how { padding: 56px 20px 40px; }
+    .rv-steps { grid-template-columns: 1fr; gap: 12px; }
+    .rv-alt { padding: 44px 20px; }
+    .rv-thanks { padding: 44px 20px 56px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== HERO ============== -->
+<header class="rv-hero">
+  <div class="rv-hero-inner">
+    <a href="../" class="rv-logo" aria-label="K. Smithurst Building Contractors — back to home">
+      <img src="../assets/logo.webp" alt="K. Smithurst Building Contractors Ltd">
+    </a>
+    <h1>Did we build something <span class="accent">great?</span></h1>
+    <p class="rv-lede">If we did, we'd love a quick review. It only takes 30 seconds — and it genuinely makes a huge difference to a local Belper building company like ours.</p>
+  </div>
+</header>
+
+<!-- ============== PRIMARY CTA CARD ============== -->
+<div class="rv-cta-wrap">
+  <div class="rv-cta-card">
+    <span class="eyebrow">A small ask</span>
+    <h2>Mind leaving us a <span class="accent">quick review?</span></h2>
+    <p>Google reviews matter — they help future Derbyshire homeowners find us, and they're the best thank-you we can get for the work we put in.</p>
+
+    <!-- Replace href="#" with your Google "leave a review" link (e.g. https://g.page/r/[place-id]/review). -->
+    <a class="rv-btn rv-btn--google" href="#" target="_blank" rel="noopener" data-platform="google">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+        <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+        <path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+        <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+      </svg>
+      Leave a Google Review
+    </a>
+    <p class="rv-cta-meta">Opens Google · takes about 30 seconds</p>
+
+    <div class="rv-tags">
+      <span class="rv-tag">House Extensions</span>
+      <span class="rv-tag">New Builds</span>
+      <span class="rv-tag">Refurbishments</span>
+      <span class="rv-tag">Commercial</span>
+      <span class="rv-tag">Trusted Trader</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section class="rv-how">
+  <h2>How it works</h2>
+  <p class="rv-sub">Three steps. About a minute, tops.</p>
+
+  <ol class="rv-steps">
+    <li class="rv-step">
+      <h4>Tap the button</h4>
+      <p>Click "Leave a Google Review" above — it opens our Google listing in a new tab.</p>
+    </li>
+    <li class="rv-step">
+      <h4>Sign in &amp; rate us</h4>
+      <p>You'll need a Google account. Click the stars to give us a rating.</p>
+    </li>
+    <li class="rv-step">
+      <h4>Add a quick note</h4>
+      <p>A sentence or two about your project is plenty. Mention the type of work if you can — it helps other people find us.</p>
+    </li>
+  </ol>
+  <p class="rv-meta">Total time: 1–2 minutes.</p>
+</section>
+
+<!-- ============== FACEBOOK FALLBACK ============== -->
+<section class="rv-alt">
+  <h3>Not on Google?</h3>
+  <p>No problem — you can leave us a review on Facebook instead. Same effect, also genuinely appreciated.</p>
+  <!-- Replace href="#" with the Facebook review URL (e.g. https://www.facebook.com/[page]/reviews/). -->
+  <a class="rv-btn rv-btn--facebook" href="#" target="_blank" rel="noopener" data-platform="facebook">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+    Leave a Facebook Review
+  </a>
+</section>
+
+<!-- ============== THANKS ============== -->
+<section class="rv-thanks">
+  <h3>Thank you for your <span class="accent">support.</span></h3>
+  <p>Every review is read — and every one makes the next quote easier to win.</p>
+  <div class="rv-signature">Kevin &amp; the team</div>
+</section>
+
+<!-- ============== SLIM FOOTER ============== -->
+<footer class="rv-footer">
+  K. Smithurst Building Contractors Ltd ·
+  <a href="tel:07966207758" class="rv-call">07966 207758</a> ·
+  <a href="../">Back to website</a>
+  <br>
+  Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a>
+</footer>
+
+</body>
+</html>
