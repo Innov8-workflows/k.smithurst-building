@@ -810,6 +810,24 @@ section { padding: 88px 0; }
   text-align: center;
   line-height: 1.5;
 }
+.form-result { font-size: 14px; line-height: 1.5; margin: 14px 0 0; padding: 0; min-height: 0; transition: padding 0.2s, background 0.2s; }
+.form-result.success {
+  padding: 14px 16px;
+  background: rgba(37,211,102,0.12);
+  border: 1px solid rgba(37,211,102,0.45);
+  color: #186e3a;
+  border-radius: 4px;
+  text-align: center;
+}
+.form-result.error {
+  padding: 14px 16px;
+  background: rgba(230,51,41,0.10);
+  border: 1px solid rgba(230,51,41,0.45);
+  color: var(--red-dark);
+  border-radius: 4px;
+  text-align: center;
+}
+.form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
 @media (max-width: 900px) { .contact-wrap { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 500px) { .contact-form { padding: 28px; } }
@@ -2255,46 +2273,55 @@ footer {
         <h3>Request a callback</h3>
         <p class="form-sub">Tell us about your project — we'll come back to you the same working day.</p>
 
-        <div class="form-grid-2">
-          <div class="form-row">
-            <label for="name">Your name</label>
-            <input type="text" id="name" required>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="c28b758b-d6da-4538-a432-06a42bc4d1ce">
+          <input type="hidden" name="subject" value="New enquiry from ksbuildingservices.co.uk">
+          <input type="hidden" name="from_name" value="K. Smithurst Website">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-row">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
           </div>
+
           <div class="form-row">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" required>
+            <label for="email">Email <span style="color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0;">(optional)</span></label>
+            <input type="email" id="email" name="email">
           </div>
-        </div>
 
-        <div class="form-row">
-          <label for="email">Email <span style="color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0;">(optional)</span></label>
-          <input type="email" id="email">
-        </div>
+          <div class="form-row">
+            <label for="service">Type of work</label>
+            <select id="service" name="service">
+              <option value="">Please select…</option>
+              <option>House Extension</option>
+              <option>Loft Conversion</option>
+              <option>New Build</option>
+              <option>Refurbishment / Renovation</option>
+              <option>Commercial Build</option>
+              <option>Groundworks / External</option>
+              <option>Something else</option>
+            </select>
+          </div>
 
-        <div class="form-row">
-          <label for="service">Type of work</label>
-          <select id="service">
-            <option value="">Please select…</option>
-            <option>House Extension</option>
-            <option>Loft Conversion</option>
-            <option>New Build</option>
-            <option>Refurbishment / Renovation</option>
-            <option>Commercial Build</option>
-            <option>Groundworks / External</option>
-            <option>Something else</option>
-          </select>
-        </div>
+          <div class="form-row">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="A few details about your project — size, timing, location, anything that would help us give you an accurate quote." required></textarea>
+          </div>
 
-        <div class="form-row">
-          <label for="message">Project details</label>
-          <textarea id="message" placeholder="A few details about your project — size, timing, location, anything that would help us give you an accurate quote." required></textarea>
-        </div>
+          <button type="submit" class="form-submit" id="submitForm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="form-submit-label">Send Enquiry</span>
+          </button>
 
-        <button class="form-submit" id="submitForm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Send Enquiry
-        </button>
-        <p class="form-note">Clicking submit will open your email client with your message pre-filled, ready to send to info@ksbuildingservices.co.uk.</p>
+          <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+          <p class="form-note">We'll respond the same working day. Your details only ever go to K. Smithurst &mdash; they're never shared.</p>
+        </form>
       </div>
     </div>
   </div>
@@ -2468,33 +2495,56 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 })();
 
-// Contact form → opens email client with pre-filled message (mailto:)
-document.getElementById('submitForm').addEventListener('click', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const service = document.getElementById('service').value;
-  const message = document.getElementById('message').value.trim();
+// Contact form → Web3Forms async submit (no page reload, inline feedback)
+(function() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const result = document.getElementById('formResult');
+  const btn = form.querySelector('#submitForm');
+  const btnLabel = btn.querySelector('.form-submit-label');
+  const originalLabel = btnLabel ? btnLabel.textContent : 'Send Enquiry';
 
-  if (!name || !phone || !message) {
-    alert('Please fill in your name, phone number and a brief project description.');
-    return;
-  }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (btn.disabled) return;
+    btn.disabled = true;
+    if (btnLabel) btnLabel.textContent = 'Sending…';
+    result.textContent = '';
+    result.className = 'form-result';
 
-  const subject = 'Website enquiry' + (service ? ' — ' + service : '');
-  let body = "Hi K. Smithurst,\n\nI'd like to enquire about a building project.\n\n";
-  body += "Name: " + name + "\n";
-  body += "Phone: " + phone + "\n";
-  if (email) body += "Email: " + email + "\n";
-  if (service) body += "Type of work: " + service + "\n";
-  body += "\nProject details:\n" + message;
+    // Build subject from the selected service for better email triage
+    const service = form.querySelector('[name="service"]').value;
+    if (service) {
+      let h = form.querySelector('input[name="subject"]');
+      if (h) h.value = 'New enquiry — ' + service;
+    }
 
-  // TEMP: routed to jamie@innov8workflows.co.uk for live testing.
-  // Revert to info@ksbuildingservices.co.uk once Jay has finished testing.
-  window.location.href = 'mailto:jamie@innov8workflows.co.uk?subject=' +
-    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-});
+    try {
+      const fd = new FormData(form);
+      const payload = JSON.stringify(Object.fromEntries(fd));
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: payload,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        result.textContent = "Thanks — we've got your message and we'll be in touch the same working day.";
+        result.className = 'form-result success';
+        form.reset();
+      } else {
+        result.textContent = (data && data.message) || 'Something went wrong sending the form. Please give us a call on 07966 207758.';
+        result.className = 'form-result error';
+      }
+    } catch (err) {
+      result.textContent = 'Connection issue — please give us a call on 07966 207758 or try again in a moment.';
+      result.className = 'form-result error';
+    } finally {
+      btn.disabled = false;
+      if (btnLabel) btnLabel.textContent = originalLabel;
+    }
+  });
+})();
 
 // Reveal on scroll
 const observer = new IntersectionObserver(entries => {

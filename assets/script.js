@@ -45,33 +45,9 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Contact form → opens email client with pre-filled message (mailto:)
-  const submit = document.getElementById('submitForm');
-  if (submit) {
-    submit.addEventListener('click', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value.trim();
-      if (!name || !phone || !message) {
-        alert('Please fill in your name, phone number and a brief project description.');
-        return;
-      }
-      const subject = 'Website enquiry' + (service ? ' — ' + service : '');
-      let body = "Hi K. Smithurst,\n\nI'd like to enquire about a building project.\n\n";
-      body += "Name: " + name + "\n";
-      body += "Phone: " + phone + "\n";
-      if (email) body += "Email: " + email + "\n";
-      if (service) body += "Type of work: " + service + "\n";
-      body += "\nProject details:\n" + message;
-      // TEMP: routed to jamie@innov8workflows.co.uk for live testing.
-      // Revert to info@ksbuildingservices.co.uk once Jay has finished testing.
-      window.location.href = 'mailto:jamie@innov8workflows.co.uk?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  }
+  // Contact form is now Web3Forms — submit handlers are inlined per page
+  // (home: in index.html, contact page: in contact/index.html) so each can
+  // bind to its <form> with full control over inline success/error UI.
 
   // Project filter tabs (projects.html)
   const tabs = document.querySelectorAll('.proj-tab');

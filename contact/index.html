@@ -195,46 +195,55 @@
         <h3>Request a callback</h3>
         <p class="form-sub">Tell us about your project — we'll come back to you the same working day.</p>
 
-        <div class="form-grid-2">
-          <div class="form-row">
-            <label for="name">Your name</label>
-            <input type="text" id="name" required>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="c28b758b-d6da-4538-a432-06a42bc4d1ce">
+          <input type="hidden" name="subject" value="New enquiry from ksbuildingservices.co.uk">
+          <input type="hidden" name="from_name" value="K. Smithurst Website">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-row">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
           </div>
+
           <div class="form-row">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" required>
+            <label for="email">Email <span style="color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0;">(optional)</span></label>
+            <input type="email" id="email" name="email">
           </div>
-        </div>
 
-        <div class="form-row">
-          <label for="email">Email <span style="color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0;">(optional)</span></label>
-          <input type="email" id="email">
-        </div>
+          <div class="form-row">
+            <label for="service">Type of work</label>
+            <select id="service" name="service">
+              <option value="">Please select…</option>
+              <option>House Extension</option>
+              <option>Loft Conversion</option>
+              <option>New Build</option>
+              <option>Refurbishment / Renovation</option>
+              <option>Commercial Build</option>
+              <option>Groundworks / External</option>
+              <option>Something else</option>
+            </select>
+          </div>
 
-        <div class="form-row">
-          <label for="service">Type of work</label>
-          <select id="service">
-            <option value="">Please select…</option>
-            <option>House Extension</option>
-            <option>Loft Conversion</option>
-            <option>New Build</option>
-            <option>Refurbishment / Renovation</option>
-            <option>Commercial Build</option>
-            <option>Groundworks / External</option>
-            <option>Something else</option>
-          </select>
-        </div>
+          <div class="form-row">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="A few details about your project — size, timing, location, anything that would help us give you an accurate quote." required></textarea>
+          </div>
 
-        <div class="form-row">
-          <label for="message">Project details</label>
-          <textarea id="message" placeholder="A few details about your project — size, timing, location, anything that would help us give you an accurate quote." required></textarea>
-        </div>
+          <button type="submit" class="form-submit" id="submitForm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="form-submit-label">Send Enquiry</span>
+          </button>
 
-        <button class="form-submit" id="submitForm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Send Enquiry
-        </button>
-        <p class="form-note">Clicking submit will open your email client with your message pre-filled, ready to send to info@ksbuildingservices.co.uk.</p>
+          <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+          <p class="form-note">We'll respond the same working day. Your details only ever go to K. Smithurst &mdash; they're never shared.</p>
+        </form>
       </div>
     </div>
   </div>
@@ -456,33 +465,56 @@
 <script src="../assets/script.js"></script>
 
 <script>
-// Contact-page form submit: open email client with pre-filled mailto:
+// Contact-page form submit: Web3Forms async POST with inline feedback
 (function() {
-  var btn = document.getElementById('submitForm');
-  if (!btn) return;
-  // Replace the node to drop the existing listener attached by assets/script.js
-  var fresh = btn.cloneNode(true);
-  btn.parentNode.replaceChild(fresh, btn);
-  fresh.addEventListener('click', function(e) {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var result = document.getElementById('formResult');
+  var btn = form.querySelector('#submitForm');
+  var btnLabel = btn ? btn.querySelector('.form-submit-label') : null;
+  var originalLabel = btnLabel ? btnLabel.textContent : 'Send Enquiry';
+
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    var name = document.getElementById('name').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var service = document.getElementById('service').value;
-    var message = document.getElementById('message').value.trim();
-    if (!name || !phone || !message) {
-      alert('Please fill in your name, phone number and a brief project description.');
-      return;
+    if (btn.disabled) return;
+    btn.disabled = true;
+    if (btnLabel) btnLabel.textContent = 'Sending…';
+    result.textContent = '';
+    result.className = 'form-result';
+
+    var service = (form.querySelector('[name="service"]') || {}).value;
+    if (service) {
+      var h = form.querySelector('input[name="subject"]');
+      if (h) h.value = 'New enquiry — ' + service;
     }
-    var subject = 'Website enquiry' + (service ? ' — ' + service : '');
-    var body = "Hi K. Smithurst,\n\nI'd like to enquire about a building project.\n\n" +
-               "Name: " + name + "\n" +
-               "Phone: " + phone + "\n" +
-               (email ? "Email: " + email + "\n" : "") +
-               (service ? "Type of work: " + service + "\n" : "") +
-               "\nProject details:\n" + message;
-    // TEMP: routed to jamie@innov8workflows.co.uk for live testing. Revert when done.
-    window.location.href = 'mailto:jamie@innov8workflows.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    var fd = new FormData(form);
+    var payload = JSON.stringify(Object.fromEntries(fd));
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: payload,
+    })
+    .then(function(res) { return res.json().then(function(d){ return { ok: res.ok, data: d }; }).catch(function(){ return { ok: res.ok, data: {} }; }); })
+    .then(function(r) {
+      if (r.ok && r.data && r.data.success) {
+        result.textContent = "Thanks — we've got your message and we'll be in touch the same working day.";
+        result.className = 'form-result success';
+        form.reset();
+      } else {
+        result.textContent = (r.data && r.data.message) || 'Something went wrong sending the form. Please give us a call on 07966 207758.';
+        result.className = 'form-result error';
+      }
+    })
+    .catch(function() {
+      result.textContent = 'Connection issue — please give us a call on 07966 207758 or try again in a moment.';
+      result.className = 'form-result error';
+    })
+    .then(function() {
+      btn.disabled = false;
+      if (btnLabel) btnLabel.textContent = originalLabel;
+    });
   });
 })();
 </script>
