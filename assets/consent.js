@@ -23,7 +23,7 @@
 (function() {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';  // ⚠ Replace with real ID
+  var GA_ID = 'G-YEGTD074SM';  // K. Smithurst Building Contractors — ksbuildingservices.co.uk
   var STORAGE_KEY = 'ksb_cookie_consent';
   var STORAGE_VER = 'v1';
 
