@@ -404,5 +404,38 @@
 </footer>
 
 <script src="../assets/consent.js"></script>
+<!-- Lead logger -> Google Sheet (Apps Script). fetch+keepalive+no-cors only;
+     sendBeacon silently drops the /exec 302. Not consent-gated. -->
+<script>
+(function() {
+  var LEAD_URL = 'https://script.google.com/macros/s/AKfycbxOeYzWtzAgBA3MdQTg-cI0RVxOG7lEQBItV7iWH16XmldMmGly0DfyU7h3Syo8Efp5qQ/exec';
+  function sendLead(d) {
+    try {
+      d.page = location.pathname || '/';
+      fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(d) });
+    } catch (e) {}
+  }
+  document.addEventListener('click', function(e) {
+    var t = e.target; if (!t || !t.closest) return;
+    var a = t.closest('a'); if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (a.classList.contains('rv-btn')) {
+      sendLead({ type: 'Review click',
+        details: a.getAttribute('data-platform') || '', source: 'review page' });
+      return;
+    }
+    if (h.indexOf('tel:') === 0) {
+      sendLead({ type: 'Call click', phone: h.replace('tel:', ''), source: 'review page' });
+    } else if (h.indexOf('wa.me') > -1) {
+      sendLead({ type: 'WhatsApp click', source: 'review page' });
+    } else if (h.indexOf('mailto:') === 0) {
+      sendLead({ type: 'Email click',
+        details: h.replace('mailto:', '').split('?')[0], source: 'review page' });
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

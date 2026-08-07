@@ -102,6 +102,77 @@
   });
 })();
 
+// Lead logger -> Google Sheet (Apps Script). Fires on real contact intent:
+// tel:/wa.me/mailto: clicks, review-button clicks, and quote-form submits.
+// NEVER navigator.sendBeacon here - it silently drops the /exec cross-origin
+// 302 while returning true. fetch + keepalive + no-cors + text/plain is the
+// only combination that survives page unload AND avoids a CORS preflight.
+// Not consent-gated: sets no cookies, stores no identifiers.
+(function() {
+  var LEAD_URL = 'https://script.google.com/macros/s/AKfycbxOeYzWtzAgBA3MdQTg-cI0RVxOG7lEQBItV7iWH16XmldMmGly0DfyU7h3Syo8Efp5qQ/exec';
+
+  function sendLead(d) {
+    try {
+      d.page = location.pathname || '/';
+      fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(d) });
+    } catch (e) {}
+  }
+
+  function where(el) {
+    if (!el || !el.closest) return 'page';
+    if (el.closest('.whatsapp-float')) return 'whatsapp widget';
+    if (el.closest('.utility-bar')) return 'top bar';
+    if (el.closest('.navbar')) return 'nav';
+    if (el.closest('.hero')) return 'hero';
+    if (el.closest('.page-banner')) return 'page banner';
+    if (el.closest('form') || el.closest('.contact-form')) return 'contact form';
+    if (el.closest('.cta-strip')) return 'CTA strip';
+    if (el.closest('.final-cta')) return 'bottom CTA';
+    if (el.closest('.rv-cta-card') || el.closest('.rv-alt')) return 'review page';
+    if (el.closest('footer')) return 'footer';
+    return 'page';
+  }
+
+  // Capture phase so the row is sent before tel:/wa.me navigation tears the
+  // page down; keepalive is what lets the request survive unload.
+  document.addEventListener('click', function(e) {
+    var t = e.target; if (!t || !t.closest) return;
+    var a = t.closest('a'); if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (a.classList.contains('rv-btn')) {
+      sendLead({ type: 'Review click',
+        details: a.getAttribute('data-platform') || '', source: 'review page' });
+      return;
+    }
+    if (h.indexOf('tel:') === 0) {
+      sendLead({ type: 'Call click', phone: h.replace('tel:', ''), source: where(a) });
+    } else if (h.indexOf('wa.me') > -1) {
+      sendLead({ type: 'WhatsApp click', source: where(a) });
+    } else if (h.indexOf('mailto:') === 0) {
+      sendLead({ type: 'Email click',
+        details: h.replace('mailto:', '').split('?')[0], source: where(a) });
+    }
+  }, true);
+
+  // Quote form - capture values at submit time (the page handler resets the
+  // form on success, so grabbing them later reads back empty fields).
+  document.addEventListener('submit', function(e) {
+    var f = e.target;
+    if (!f || f.id !== 'contactForm') return;
+    function v(name) {
+      var el = f.querySelector('[name="' + name + '"]');
+      return el ? String(el.value || '').trim() : '';
+    }
+    var details = v('message');
+    var email = v('email');
+    if (email) details = (details ? details + '\n' : '') + 'Email: ' + email;
+    sendLead({ type: 'Quote form', name: v('name'), phone: v('phone'),
+      service: v('service'), details: details, source: 'contact form' });
+  }, true);
+})();
+
 // Before/After slider — pointer-driven reveal handle
 (function() {
   const sliders = document.querySelectorAll('.ba-slider');
