@@ -1,33 +1,14 @@
-/* =====================================================
-   Cookie consent + Google Analytics 4 loader
-   ---------------------------------------------------
-   - UK PECR compliant: GA4 won't load unless user clicks Accept.
-   - Equal-prominence Accept / Reject buttons.
-   - Choice persists in localStorage. Footer link with
-     data-cc-reset clears it.
-   - Uses Google Consent Mode v2 so even a "rejected" visit
-     still pings GA4 cookielessly for headline counts (optional —
-     comment the consent default block to disable).
-   - Custom events fired on consent:
-       click_phone   — any <a href="tel:..."> click
-       click_whatsapp — any wa.me link click
-       click_email   — any <a href="mailto:..."> click
-       form_submit   — when the contact form's success state
-                       is reached (Web3Forms green card)
-   =====================================================
-   REPLACE THE GA_ID BELOW with your GA4 Measurement ID
-   (format: G-XXXXXXXXXX) once you have it from
-   https://analytics.google.com.
-   ===================================================== */
+
+
 
 (function() {
   'use strict';
 
-  var GA_ID = 'G-YEGTD074SM';  // K. Smithurst Building Contractors — ksbuildingservices.co.uk
+  var GA_ID = 'G-YEGTD074SM';
   var STORAGE_KEY = 'ksb_cookie_consent';
   var STORAGE_VER = 'v1';
 
-  // ---------- 1. Inject the banner styles ----------
+
   var style = document.createElement('style');
   style.textContent =
     '.cc-banner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0d1638;color:#fff;padding:18px 22px;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:14px;line-height:1.55;box-shadow:0 -8px 32px rgba(0,0,0,0.18);transform:translateY(120%);transition:transform 0.35s ease}' +
@@ -52,7 +33,7 @@
     '}';
   document.head.appendChild(style);
 
-  // ---------- 2. Initialise gtag with consent denied ----------
+
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
@@ -65,9 +46,9 @@
     'wait_for_update': 500
   });
 
-  // Always load gtag.js — Consent Mode v2 sends cookieless pings
-  // for rejected visits (so you get headline traffic counts), and
-  // full pageviews + events for accepted visits.
+
+
+
   if (GA_ID && GA_ID.indexOf('XXXX') === -1) {
     var s = document.createElement('script');
     s.async = true;
@@ -77,7 +58,7 @@
     gtag('config', GA_ID, { anonymize_ip: true });
   }
 
-  // ---------- 3. Check stored consent ----------
+
   function readConsent() {
     try {
       var v = localStorage.getItem(STORAGE_KEY);
@@ -107,7 +88,7 @@
     applyConsent(stored);
   }
 
-  // ---------- 4. Show banner if no stored choice ----------
+
   function showBanner() {
     var banner = document.createElement('div');
     banner.className = 'cc-banner';
@@ -154,9 +135,9 @@
     init();
   }
 
-  // ---------- 5. Custom event tracking ----------
+
   function bindEvents() {
-    // Phone clicks
+
     document.querySelectorAll('a[href^="tel:"]').forEach(function(a) {
       a.addEventListener('click', function() {
         gtag('event', 'click_phone', {
@@ -165,7 +146,7 @@
         });
       });
     });
-    // WhatsApp clicks
+
     document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) {
       a.addEventListener('click', function() {
         gtag('event', 'click_whatsapp', {
@@ -173,7 +154,7 @@
         });
       });
     });
-    // Email link clicks (footer + contact rows, not the form)
+
     document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
       a.addEventListener('click', function() {
         gtag('event', 'click_email', {
@@ -181,7 +162,7 @@
         });
       });
     });
-    // Contact form successful submission — watch the result element
+
     document.querySelectorAll('.form-result').forEach(function(el) {
       var obs = new MutationObserver(function() {
         if (el.classList.contains('success')) {
@@ -194,7 +175,7 @@
       });
       obs.observe(el, { attributes: true, attributeFilter: ['class'] });
     });
-    // Review-page CTA clicks (for measuring share-link conversion)
+
     document.querySelectorAll('.rv-btn').forEach(function(a) {
       a.addEventListener('click', function() {
         gtag('event', 'review_click', {
@@ -204,7 +185,7 @@
     });
   }
 
-  // ---------- 6. Footer reset link ----------
+
   function bindResetLink() {
     document.addEventListener('click', function(e) {
       var t = e.target;

@@ -1,7 +1,4 @@
-/* =====================================================
-   K. Smithurst Building Contractors — shared stylesheet
-   Used by services.html, projects.html, about.html, contact.html
-   ===================================================== */
+
 
 :root {
   --red: #E63329;
@@ -39,7 +36,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
-/* --- Display typography --- */
+
 .display {
   font-family: 'Bebas Neue', 'Inter', sans-serif;
   letter-spacing: 0.01em;
@@ -55,7 +52,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--red);
 }
 
-/* --- Utility bar --- */
+
 .utility-bar {
   background: var(--navy-deep);
   color: rgba(255,255,255,0.85);
@@ -86,7 +83,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .utility-cta:hover { color: var(--red); }
 
-/* --- Nav --- */
+
 .navbar {
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
@@ -177,7 +174,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .call-btn { padding: 12px 14px; }
 }
 
-/* --- Page banner (sub-pages) --- */
+
 .page-banner {
   position: relative;
   min-height: 360px;
@@ -239,7 +236,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .page-banner .crumbs a:hover { color: var(--red); }
 .page-banner .crumbs svg { width: 10px; height: 10px; opacity: 0.6; }
 
-/* --- Buttons (shared) --- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -260,7 +257,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-navy:hover { background: var(--navy-dark); transform: translateY(-1px); }
 .btn svg { width: 16px; height: 16px; }
 
-/* --- Section base --- */
+
 section { padding: 88px 0; }
 .section-head {
   max-width: 720px;
@@ -282,7 +279,7 @@ section { padding: 88px 0; }
   line-height: 1.65;
 }
 
-/* --- Footer --- */
+
 footer {
   background: var(--navy-deep);
   color: rgba(255,255,255,0.7);
@@ -333,7 +330,7 @@ footer {
   .footer-bottom { justify-content: center; text-align: center; }
 }
 
-/* --- WhatsApp float --- */
+
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
@@ -358,11 +355,11 @@ footer {
   100% { box-shadow: 0 8px 24px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
 }
 
-/* --- Reveal animations --- */
+
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
-/* --- Service detail blocks (services.html) --- */
+
 .svc-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -427,7 +424,7 @@ footer {
   .svc-block ul { grid-template-columns: 1fr; }
 }
 
-/* --- Projects gallery (projects.html) --- */
+
 .gallery-page { background: var(--navy-deep); color: #fff; }
 .gallery-page .section-head h2 { color: #fff; }
 .gallery-page .section-head p { color: rgba(255,255,255,0.75); }
@@ -501,7 +498,7 @@ footer {
 @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .proj-grid { grid-template-columns: 1fr; } }
 
-/* --- About / Why us (about.html) --- */
+
 .about-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -589,7 +586,7 @@ footer {
   .why-left { position: static; }
 }
 
-/* --- Reviews — slider layout below --- */
+
 .review-card {
   background: var(--paper);
   border-radius: 6px;
@@ -636,7 +633,7 @@ footer {
 .review-source svg { width: 14px; height: 14px; color: #1877F2; }
 
 
-/* --- Contact (contact.html) --- */
+
 .contact-wrap {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -762,7 +759,7 @@ footer {
 @media (max-width: 900px) { .contact-wrap { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 500px) { .contact-form { padding: 28px; } }
 
-/* --- Coverage map block (contact.html) --- */
+
 .coverage {
   background: var(--cream);
 }
@@ -814,7 +811,7 @@ footer {
 .coverage-map iframe { width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 900px) { .coverage-grid { grid-template-columns: 1fr; gap: 32px; } }
 
-/* --- Final CTA strip (sub-pages) --- */
+
 .cta-strip {
   background: var(--navy-deep);
   color: #fff;
@@ -838,7 +835,7 @@ footer {
 }
 .cta-strip .actions { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
-/* --- Trust strip (under banner on services / about) --- */
+
 .trust-strip {
   background: var(--cream);
   padding: 48px 0;
@@ -867,7 +864,7 @@ footer {
 @media (max-width: 800px) { .trust-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
 @media (max-width: 480px) { .trust-grid { grid-template-columns: 1fr; } }
 
-/* --- Process timeline (about.html) --- */
+
 .process { background: var(--paper); }
 .process-grid {
   display: grid;
@@ -902,7 +899,7 @@ footer {
 @media (max-width: 500px) { .process-grid { grid-template-columns: 1fr; } }
 
 
-/* --- FAQ --- */
+
 .faq { background: var(--paper); }
 .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 880px; }
 .faq-item {
@@ -948,7 +945,7 @@ footer {
   padding-top: 18px;
 }
 
-/* --- Reviews slider --- */
+
 .reviews-slider { position: relative; }
 .reviews-grid {
   display: grid !important;
@@ -997,11 +994,9 @@ footer {
   .reviews-grid { grid-auto-columns: 100%; }
 }
 
-/* =====================================================
-   MOBILE POLISH — narrow viewport tuning
-   ===================================================== */
+
 @media (max-width: 640px) {
-  /* Utility bar — collapse to phone only */
+
   .utility-bar { padding: 7px 0; font-size: 12px; }
   .utility-bar-inner { flex-wrap: nowrap; justify-content: space-between; gap: 10px; padding: 0 16px; }
   .utility-left .utility-item:not(#hours-display) { display: none; }
@@ -1009,22 +1004,22 @@ footer {
   .utility-cta { font-size: 12px; gap: 6px; white-space: nowrap; }
   .utility-cta svg { width: 12px; height: 12px; }
 
-  /* Section padding */
+
   section { padding: 56px 0; }
   .section-head { margin-bottom: 32px; }
   .section-head h2 { font-size: 36px; }
   .section-head p { font-size: 15px; }
 
-  /* Container padding */
+
   .container { padding: 0 20px; }
 
-  /* Navbar */
+
   .nav-inner { padding: 12px 20px; }
   .nav-logo img { height: 44px; }
   .call-btn { padding: 10px 12px; }
   .call-btn svg { width: 18px; height: 18px; }
 
-  /* Hero */
+
   .hero { min-height: auto; }
   .hero-content { padding: 56px 20px 64px; gap: 32px; grid-template-columns: 1fr; }
   .hero h1 { font-size: 48px; line-height: 0.95; margin-bottom: 22px; }
@@ -1040,14 +1035,14 @@ footer {
   .hero-stat .num small { font-size: 18px; }
   .hero-stat .label { font-size: 11px; letter-spacing: 0.1em; margin-top: 4px; }
 
-  /* Page banners (sub-pages) */
+
   .page-banner { min-height: 220px; }
   .page-banner-inner { padding: 52px 20px; }
   .page-banner h1 { font-size: 44px; line-height: 0.95; margin: 12px 0 14px; }
   .page-banner p { font-size: 14.5px; line-height: 1.5; }
   .page-banner .crumbs { font-size: 11px; margin-top: 18px; gap: 6px; }
 
-  /* Trust strip */
+
   .trust { padding: 32px 0 !important; }
   .trust-strip { padding: 32px 0 !important; }
   .trust-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -1055,13 +1050,13 @@ footer {
   .trust-item .trust-num, .trust-num { font-size: 32px; }
   .trust-item .trust-label, .trust-label { font-size: 12px; line-height: 1.35; }
 
-  /* Services grid */
+
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
   .service-card { padding: 26px 22px; }
   .service-card h3 { font-size: 24px; }
   .service-card p { font-size: 14px; }
 
-  /* Service detail blocks */
+
   .svc-block { padding: 36px 0; gap: 24px; grid-template-columns: 1fr; }
   .svc-block.reverse .svc-text { order: 0; }
   .svc-block h3 { font-size: 30px; margin: 6px 0 14px; }
@@ -1070,7 +1065,7 @@ footer {
   .svc-block li { font-size: 13.5px; padding-left: 18px; }
   .svc-block .btn { width: 100%; justify-content: center; }
 
-  /* Gallery (home + projects) */
+
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; gap: 12px; }
   .gallery-item .caption { padding: 16px 16px 14px; }
   .gallery-item .caption .title { font-size: 16px; }
@@ -1081,7 +1076,7 @@ footer {
   .proj-item .title { font-size: 17px; }
   .proj-item .caption { padding: 14px 16px 12px; }
 
-  /* Why us */
+
   .why-wrap { grid-template-columns: 1fr; gap: 24px; }
   .why-left { position: static; }
   .why-item { grid-template-columns: 44px 1fr; gap: 14px; padding: 20px 0; }
@@ -1089,13 +1084,13 @@ footer {
   .why-item h4 { font-size: 20px; margin-bottom: 6px; }
   .why-item p { font-size: 14px; line-height: 1.55; }
 
-  /* Process steps */
+
   .process-grid { grid-template-columns: 1fr; gap: 12px; }
   .process-step { padding: 20px 18px; }
   .process-step h4 { font-size: 19px; }
   .process-step p { font-size: 13.5px; }
 
-  /* Reviews slider — tighter cards, peek of next */
+
   .reviews-grid { grid-auto-columns: 86vw !important; gap: 14px; padding: 4px 4px 14px; }
   .review-card { padding: 22px 22px 22px; border-radius: 6px; }
   .review-card blockquote { font-size: 14.5px; line-height: 1.6; margin-bottom: 18px; }
@@ -1110,7 +1105,7 @@ footer {
   .slider-btn { width: 44px; height: 44px; }
   .slider-btn svg { width: 16px; height: 16px; }
 
-  /* Contact */
+
   .contact-wrap { grid-template-columns: 1fr; gap: 28px; }
   .contact-info h2 { font-size: 36px; margin: 10px 0 16px; }
   .contact-info > p { font-size: 15px; margin-bottom: 24px; }
@@ -1120,7 +1115,7 @@ footer {
   .contact-detail-text .label { font-size: 10px; }
   .contact-detail-text a, .contact-detail-text span { font-size: 14.5px; }
 
-  /* Contact form */
+
   .contact-form { padding: 22px; }
   .contact-form h3 { font-size: 26px; }
   .contact-form .form-sub { font-size: 13px; margin-bottom: 22px; }
@@ -1131,26 +1126,26 @@ footer {
   .form-submit { padding: 14px 20px; font-size: 14px; }
   .form-note { font-size: 11.5px; margin-top: 12px; }
 
-  /* Coverage / map */
+
   .coverage-grid { grid-template-columns: 1fr; gap: 28px; }
   .coverage h2 { font-size: 34px; }
   .coverage-areas { grid-template-columns: 1fr 1fr; font-size: 13px; }
 
-  /* CTA strip */
+
   .cta-strip { padding: 44px 0; }
   .cta-strip h2 { font-size: 32px; }
   .cta-strip p { font-size: 14.5px; margin-bottom: 24px; }
   .cta-strip .actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .cta-strip .actions .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 14px; }
 
-  /* Final CTA (home) */
+
   .final-cta { padding: 64px 0; }
   .final-cta h2 { font-size: 40px; margin-bottom: 18px; }
   .final-cta p { font-size: 14.5px; margin-bottom: 28px; }
   .final-cta-actions { flex-direction: column; width: 100%; gap: 10px; }
   .final-cta-actions .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 14px; }
 
-  /* Footer */
+
   .footer-grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
   .footer-col h5 { font-size: 16px; margin-bottom: 14px; }
   .footer-col a, .footer-col p { font-size: 13.5px; }
@@ -1158,7 +1153,7 @@ footer {
   .footer-logo img { height: 36px; }
   .footer-bottom { padding: 18px 0; flex-direction: column; align-items: flex-start; gap: 8px; font-size: 12px; }
 
-  /* FAQ */
+
   .faq { padding: 56px 0 !important; }
   .faq-item summary { padding: 16px 18px; font-size: 17px; }
   .faq-item p { padding: 14px 18px 18px; font-size: 14px; }
@@ -1167,11 +1162,11 @@ footer {
   .faq-jump { padding: 14px 14px; gap: 6px; margin: 18px 0 4px; }
   .faq-jump a { padding: 6px 10px; font-size: 11px; }
 
-  /* WhatsApp float */
+
   .whatsapp-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
 
-  /* About intro */
+
   .about-intro { grid-template-columns: 1fr; gap: 28px; }
   .about-intro .lead { font-size: 16px; }
   .about-intro .stat-cell { padding: 20px 20px; }
@@ -1180,7 +1175,7 @@ footer {
   .about-intro .stat-cell .label { font-size: 11px; }
 }
 
-/* Narrower phones — extra tightening */
+
 @media (max-width: 380px) {
   .hero h1 { font-size: 42px; }
   .page-banner h1 { font-size: 38px; }
@@ -1190,7 +1185,7 @@ footer {
   .nav-logo img { height: 38px; }
 }
 
-/* --- Before/After slider --- */
+
 .ba-section { background: var(--cream, #f7f4ee); padding: 88px 0; }
 .ba-section .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 .ba-wrap { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1100px; margin: 0 auto; }
@@ -1204,7 +1199,7 @@ footer {
   background: #14161c;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y; /* allow vertical page scroll, capture horizontal drag */
+  touch-action: pan-y;
   cursor: ew-resize;
 }
 .ba-img {
@@ -1227,7 +1222,7 @@ footer {
   will-change: width;
 }
 .ba-mask-before .ba-img {
-  width: 100vw; /* will be overridden via JS to slider width */
+  width: 100vw;
   max-width: none;
 }
 .ba-handle {
@@ -1305,7 +1300,7 @@ footer {
   .ba-hint { display: none; }
 }
 
-/* --- Accreditation strip --- */
+
 .acc-strip {
   margin-top: 36px;
   padding-top: 28px;
@@ -1353,7 +1348,7 @@ footer {
   .acc-logo, .acc-logo img { max-height: 44px; height: 44px; }
 }
 
-/* --- Footer accreditation strip --- */
+
 .footer-acc {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 28px 0;

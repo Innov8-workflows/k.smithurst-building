@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Zo671G2_4B865BF1Tsm9Q7Xu8_8NXcdJ3wviXvgO1mE" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://crm.innov8workflows.co.uk; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.web3forms.com https://crm.innov8workflows.co.uk https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Belper-based building contractors with 30+ years' experience. House extensions, new builds, refurbishments and commercial builds across Derbyshire.">
 <meta name="keywords" content="builders Belper, builders Derbyshire, building contractors Derby, house extensions Derbyshire, loft conversions Belper, new builds Derby">
 <meta property="og:title" content="K. Smithurst Building Contractors Ltd — Belper, Derbyshire">
@@ -52,7 +54,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
-/* === Display typography === */
+
 .display {
   font-family: 'Bebas Neue', 'Inter', sans-serif;
   letter-spacing: 0.01em;
@@ -68,9 +70,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--red);
 }
 
-/* ============================================
-   TOP UTILITY BAR
-   ============================================ */
+
 .utility-bar {
   background: var(--navy-deep);
   color: rgba(255,255,255,0.85);
@@ -101,9 +101,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .utility-cta:hover { color: var(--red); }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
+
 .navbar {
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
@@ -199,9 +197,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .call-btn { padding: 12px 14px; }
 }
 
-/* ============================================
-   HERO
-   ============================================ */
+
 .hero {
   position: relative;
   min-height: min(720px, 92vh);
@@ -366,9 +362,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero-stat .num { font-size: 48px; }
 }
 
-/* ============================================
-   TRUST SIGNALS
-   ============================================ */
+
 .trust {
   background: var(--cream);
   padding: 56px 0;
@@ -408,9 +402,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .trust-grid { grid-template-columns: 1fr; }
 }
 
-/* ============================================
-   SECTION HEADERS (shared)
-   ============================================ */
+
 section { padding: 88px 0; }
 .section-head {
   max-width: 720px;
@@ -432,9 +424,7 @@ section { padding: 88px 0; }
   line-height: 1.65;
 }
 
-/* ============================================
-   SERVICES
-   ============================================ */
+
 .services { background: var(--paper); }
 .services-grid {
   display: grid;
@@ -502,9 +492,7 @@ section { padding: 88px 0; }
 @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
 
-/* ============================================
-   BEFORE & AFTER GALLERY
-   ============================================ */
+
 .gallery {
   background: var(--navy-deep);
   color: #fff;
@@ -534,7 +522,7 @@ section { padding: 88px 0; }
 }
 .gallery-item:hover img { transform: scale(1.05); }
 
-/* Tile size variants */
+
 .gallery-item.tile-feature { grid-column: span 2; grid-row: span 2; }
 .gallery-item.tile-wide { grid-column: span 2; }
 .gallery-item.tile-tall { grid-row: span 2; }
@@ -576,9 +564,7 @@ section { padding: 88px 0; }
   .gallery-item.tile-tall { grid-column: span 1; grid-row: span 1; }
 }
 
-/* ============================================
-   WHY CHOOSE US
-   ============================================ */
+
 .why { background: var(--paper); }
 .why-wrap {
   display: grid;
@@ -619,9 +605,7 @@ section { padding: 88px 0; }
   .why-left { position: static; }
 }
 
-/* ============================================
-   REVIEWS
-   ============================================ */
+
 .reviews { background: var(--cream); }
 .reviews-grid {
   display: grid;
@@ -679,9 +663,7 @@ section { padding: 88px 0; }
 
 @media (max-width: 800px) { .reviews-grid { grid-template-columns: 1fr; } }
 
-/* ============================================
-   CONTACT FORM
-   ============================================ */
+
 .contact { background: var(--paper); }
 .contact-wrap {
   display: grid;
@@ -833,9 +815,7 @@ section { padding: 88px 0; }
 @media (max-width: 900px) { .contact-wrap { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 500px) { .contact-form { padding: 28px; } }
 
-/* ============================================
-   FINAL CTA
-   ============================================ */
+
 .final-cta {
   position: relative;
   padding: 120px 0;
@@ -856,7 +836,7 @@ section { padding: 88px 0; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(13, 22, 56, 0.25); /* brand navy at ~25% */
+  background: rgba(13, 22, 56, 0.25);
 }
 .final-cta h2 { text-shadow: 0 2px 18px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5);
   font-family: 'Bebas Neue', sans-serif;
@@ -881,9 +861,7 @@ section { padding: 88px 0; }
   justify-content: center;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+
 footer {
   background: var(--navy-deep);
   color: rgba(255,255,255,0.7);
@@ -936,9 +914,7 @@ footer {
   .footer-bottom { justify-content: center; text-align: center; }
 }
 
-/* ============================================
-   FLOATING WHATSAPP
-   ============================================ */
+
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
@@ -963,11 +939,11 @@ footer {
   100% { box-shadow: 0 8px 24px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
 }
 
-/* Reveal animations on scroll */
+
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
-/* --- Reviews slider --- */
+
 .reviews-slider { position: relative; }
 .reviews-grid {
   display: grid !important;
@@ -1017,11 +993,9 @@ footer {
 }
 
 
-/* =====================================================
-   MOBILE POLISH — narrow viewport tuning
-   ===================================================== */
+
 @media (max-width: 640px) {
-  /* Utility bar — collapse to phone only */
+
   .utility-bar { padding: 7px 0; font-size: 12px; }
   .utility-bar-inner { flex-wrap: nowrap; justify-content: space-between; gap: 10px; padding: 0 16px; }
   .utility-left .utility-item:not(#hours-display) { display: none; }
@@ -1029,22 +1003,22 @@ footer {
   .utility-cta { font-size: 12px; gap: 6px; white-space: nowrap; }
   .utility-cta svg { width: 12px; height: 12px; }
 
-  /* Section padding */
+
   section { padding: 56px 0; }
   .section-head { margin-bottom: 32px; }
   .section-head h2 { font-size: 36px; }
   .section-head p { font-size: 15px; }
 
-  /* Container padding */
+
   .container { padding: 0 20px; }
 
-  /* Navbar */
+
   .nav-inner { padding: 12px 20px; }
   .nav-logo img { height: 44px; }
   .call-btn { padding: 10px 12px; }
   .call-btn svg { width: 18px; height: 18px; }
 
-  /* Hero */
+
   .hero { min-height: auto; }
   .hero-content { padding: 56px 20px 64px; gap: 32px; grid-template-columns: 1fr; }
   .hero h1 { font-size: 48px; line-height: 0.95; margin-bottom: 22px; }
@@ -1068,14 +1042,14 @@ footer {
   .hero-stat .label { font-size: 10px; letter-spacing: 0.08em; margin-top: 6px; line-height: 1.25; }
   .hero-stat .label br { display: none; }
 
-  /* Page banners (sub-pages) */
+
   .page-banner { min-height: 220px; }
   .page-banner-inner { padding: 52px 20px; }
   .page-banner h1 { font-size: 44px; line-height: 0.95; margin: 12px 0 14px; }
   .page-banner p { font-size: 14.5px; line-height: 1.5; }
   .page-banner .crumbs { font-size: 11px; margin-top: 18px; gap: 6px; }
 
-  /* Trust strip */
+
   .trust { padding: 32px 0 !important; }
   .trust-strip { padding: 32px 0 !important; }
   .trust-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -1083,13 +1057,13 @@ footer {
   .trust-item .trust-num, .trust-num { font-size: 32px; }
   .trust-item .trust-label, .trust-label { font-size: 12px; line-height: 1.35; }
 
-  /* Services grid */
+
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
   .service-card { padding: 26px 22px; }
   .service-card h3 { font-size: 24px; }
   .service-card p { font-size: 14px; }
 
-  /* Service detail blocks */
+
   .svc-block { padding: 36px 0; gap: 24px; grid-template-columns: 1fr; }
   .svc-block.reverse .svc-text { order: 0; }
   .svc-block h3 { font-size: 30px; margin: 6px 0 14px; }
@@ -1098,7 +1072,7 @@ footer {
   .svc-block li { font-size: 13.5px; padding-left: 18px; }
   .svc-block .btn { width: 100%; justify-content: center; }
 
-  /* Gallery (home + projects) */
+
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; gap: 12px; }
   .gallery-item .caption { padding: 16px 16px 14px; }
   .gallery-item .caption .title { font-size: 16px; }
@@ -1109,7 +1083,7 @@ footer {
   .proj-item .title { font-size: 17px; }
   .proj-item .caption { padding: 14px 16px 12px; }
 
-  /* Why us */
+
   .why-wrap { grid-template-columns: 1fr; gap: 24px; }
   .why-left { position: static; }
   .why-item { grid-template-columns: 44px 1fr; gap: 14px; padding: 20px 0; }
@@ -1117,13 +1091,13 @@ footer {
   .why-item h4 { font-size: 20px; margin-bottom: 6px; }
   .why-item p { font-size: 14px; line-height: 1.55; }
 
-  /* Process steps */
+
   .process-grid { grid-template-columns: 1fr; gap: 12px; }
   .process-step { padding: 20px 18px; }
   .process-step h4 { font-size: 19px; }
   .process-step p { font-size: 13.5px; }
 
-  /* Reviews slider — tighter cards, peek of next */
+
   .reviews-grid { grid-auto-columns: 86vw !important; gap: 14px; padding: 4px 4px 14px; }
   .review-card { padding: 22px 22px 22px; border-radius: 6px; }
   .review-card blockquote { font-size: 14.5px; line-height: 1.6; margin-bottom: 18px; }
@@ -1138,7 +1112,7 @@ footer {
   .slider-btn { width: 44px; height: 44px; }
   .slider-btn svg { width: 16px; height: 16px; }
 
-  /* Contact */
+
   .contact-wrap { grid-template-columns: 1fr; gap: 28px; }
   .contact-info h2 { font-size: 36px; margin: 10px 0 16px; }
   .contact-info > p { font-size: 15px; margin-bottom: 24px; }
@@ -1148,7 +1122,7 @@ footer {
   .contact-detail-text .label { font-size: 10px; }
   .contact-detail-text a, .contact-detail-text span { font-size: 14.5px; }
 
-  /* Contact form */
+
   .contact-form { padding: 22px; }
   .contact-form h3 { font-size: 26px; }
   .contact-form .form-sub { font-size: 13px; margin-bottom: 22px; }
@@ -1159,26 +1133,26 @@ footer {
   .form-submit { padding: 14px 20px; font-size: 14px; }
   .form-note { font-size: 11.5px; margin-top: 12px; }
 
-  /* Coverage / map */
+
   .coverage-grid { grid-template-columns: 1fr; gap: 28px; }
   .coverage h2 { font-size: 34px; }
   .coverage-areas { grid-template-columns: 1fr 1fr; font-size: 13px; }
 
-  /* CTA strip */
+
   .cta-strip { padding: 44px 0; }
   .cta-strip h2 { font-size: 32px; }
   .cta-strip p { font-size: 14.5px; margin-bottom: 24px; }
   .cta-strip .actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .cta-strip .actions .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 14px; }
 
-  /* Final CTA (home) */
+
   .final-cta { padding: 64px 0; }
   .final-cta h2 { font-size: 40px; margin-bottom: 18px; }
   .final-cta p { font-size: 14.5px; margin-bottom: 28px; }
   .final-cta-actions { flex-direction: column; width: 100%; gap: 10px; }
   .final-cta-actions .btn { justify-content: center; width: 100%; padding: 14px 20px; font-size: 14px; }
 
-  /* Footer */
+
   .footer-grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
   .footer-col h5 { font-size: 16px; margin-bottom: 14px; }
   .footer-col a, .footer-col p { font-size: 13.5px; }
@@ -1186,7 +1160,7 @@ footer {
   .footer-logo img { height: 36px; }
   .footer-bottom { padding: 18px 0; flex-direction: column; align-items: flex-start; gap: 8px; font-size: 12px; }
 
-  /* FAQ */
+
   .faq { padding: 56px 0 !important; }
   .faq-item summary { padding: 16px 18px; font-size: 17px; }
   .faq-item p { padding: 14px 18px 18px; font-size: 14px; }
@@ -1195,11 +1169,11 @@ footer {
   .faq-jump { padding: 14px 14px; gap: 6px; margin: 18px 0 4px; }
   .faq-jump a { padding: 6px 10px; font-size: 11px; }
 
-  /* WhatsApp float */
+
   .whatsapp-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
 
-  /* About intro */
+
   .about-intro { grid-template-columns: 1fr; gap: 28px; }
   .about-intro .lead { font-size: 16px; }
   .about-intro .stat-cell { padding: 20px 20px; }
@@ -1208,7 +1182,7 @@ footer {
   .about-intro .stat-cell .label { font-size: 11px; }
 }
 
-/* Narrower phones — extra tightening */
+
 @media (max-width: 380px) {
   .hero h1 { font-size: 42px; }
   .page-banner h1 { font-size: 38px; }
@@ -1219,7 +1193,7 @@ footer {
 }
 
 
-/* --- Before/After slider --- */
+
 .ba-section { background: var(--cream, #f7f4ee); padding: 88px 0; }
 .ba-section .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 .ba-wrap { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1100px; margin: 0 auto; }
@@ -1233,7 +1207,7 @@ footer {
   background: #14161c;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y; /* allow vertical page scroll, capture horizontal drag */
+  touch-action: pan-y;
   cursor: ew-resize;
 }
 .ba-img {
@@ -1256,7 +1230,7 @@ footer {
   will-change: width;
 }
 .ba-mask-before .ba-img {
-  width: 100vw; /* will be overridden via JS to slider width */
+  width: 100vw;
   max-width: none;
 }
 .ba-handle {
@@ -1336,14 +1310,14 @@ footer {
 
 
 
-/* --- Reviews autoroll: single-card-per-view on the home --- */
+
 .reviews-slider--autoroll .reviews-grid { grid-auto-columns: 100% !important; }
 .reviews-slider--autoroll .reviews-grid .review-card { max-width: 880px; margin: 0 auto; }
 @media (max-width: 640px) {
   .reviews-slider--autoroll .reviews-grid .review-card { max-width: none; }
 }
 
-/* --- About / Meet the owner --- */
+
 .about-owner { background: var(--cream); padding: 88px 0; }
 .about-owner-grid {
   display: grid;
@@ -1448,7 +1422,7 @@ footer {
   .about-owner-stats > div { padding: 12px 16px; }
 }
 
-/* --- Areas covered (home) --- */
+
 .areas { background: var(--paper); padding: 88px 0; }
 .areas-grid {
   display: grid;
@@ -1507,14 +1481,14 @@ footer {
   .areas-list { grid-template-columns: 1fr 1fr; }
 }
 
-/* --- Process (home) — re-use the existing .process-grid + .process-step styles --- */
+
 .process-home { background: var(--cream); padding: 88px 0; }
 @media (max-width: 640px) {
   .process-home { padding: 56px 0; }
 }
 
 
-/* --- Process steps (home) --- */
+
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1549,7 +1523,7 @@ footer {
 @media (max-width: 600px) { .process-grid { grid-template-columns: 1fr; } }
 
 
-/* --- Accreditation strip --- */
+
 .acc-strip {
   margin-top: 36px;
   padding-top: 28px;
@@ -1598,7 +1572,7 @@ footer {
 }
 
 
-/* --- Footer accreditation strip --- */
+
 .footer-acc {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 28px 0;
@@ -1642,7 +1616,7 @@ footer {
 }
 
 </style>
-<!-- SEO:BEGIN -->
+
 <link rel="canonical" href="https://ksbuildingservices.co.uk/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
@@ -1663,11 +1637,11 @@ footer {
 <meta name="geo.placename" content="Belper, Derbyshire">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","@id":"https://ksbuildingservices.co.uk/#organization","name":"K. Smithurst Building Contractors Ltd","alternateName":"K. Smithurst Builders","url":"https://ksbuildingservices.co.uk/","logo":"https://ksbuildingservices.co.uk/assets/favicon-512.png","image":"https://ksbuildingservices.co.uk/assets/og-image.jpg","telephone":"+441773828516","email":"info@ksbuildingservices.co.uk","priceRange":"\u00a3\u00a3","address":{"@type":"PostalAddress","addressLocality":"Belper","addressRegion":"Derbyshire","addressCountry":"GB"},"areaServed":[{"@type":"City","name":"Belper"},{"@type":"City","name":"Derby"},{"@type":"City","name":"Ripley"},{"@type":"City","name":"Alfreton"},{"@type":"City","name":"Matlock"},{"@type":"City","name":"Bakewell"},{"@type":"City","name":"Ambergate"},{"@type":"City","name":"Heanor"},{"@type":"City","name":"Duffield"},{"@type":"AdministrativeArea","name":"Derbyshire"}],"founder":{"@type":"Person","name":"Kevin Smithurst"},"foundingDate":"1991","vatID":"GB 04362330","identifier":"Company No. 04362330","knowsAbout":["House extensions","Loft conversions","Garage conversions","New house builds","Commercial building developments","House refurbishments","External building work","Landscaping"],"memberOf":[{"@type":"Organization","name":"Federation of Small Businesses"},{"@type":"Organization","name":"Trusted Trader"},{"@type":"Organization","name":"Constructionline"}],"sameAs":["https://www.facebook.com/profile.php?id=100057609452642"],"contactPoint":{"@type":"ContactPoint","telephone":"+441773828516","contactType":"Customer Service","areaServed":"GB","availableLanguage":["en"]},"openingHours":["Mo-Fr 08:00-17:00","Sa 08:00-13:00"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://ksbuildingservices.co.uk/","name":"K. Smithurst Building Contractors Ltd"}</script>
-<!-- SEO:END -->
+
 </head>
 <body>
 
-<!-- =================== UTILITY BAR =================== -->
+
 <div class="utility-bar">
   <div class="utility-bar-inner">
     <div class="utility-left">
@@ -1687,7 +1661,7 @@ footer {
   </div>
 </div>
 
-<!-- =================== NAVBAR =================== -->
+
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="#top" class="nav-logo" aria-label="K. Smithurst Building Contractors — home">
@@ -1713,7 +1687,7 @@ footer {
   </div>
 </nav>
 
-<!-- =================== HERO =================== -->
+
 <header class="hero" id="top">
   <div class="hero-slider">
     <div class="hero-slide active" data-slide="0"></div>
@@ -1756,7 +1730,7 @@ footer {
   </div>
 </header>
 
-<!-- =================== TRUST SIGNALS =================== -->
+
 <section class="trust" style="padding: 56px 0;">
   <div class="container">
     <div class="trust-grid">
@@ -1777,7 +1751,7 @@ footer {
         <div class="trust-label">No-obligation written quotes for every project</div>
       </div>
     </div>
-  
+
     <div class="acc-strip">
       <span class="acc-label">Accredited members of</span>
       <div class="acc-logos">
@@ -1796,7 +1770,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== SERVICES =================== -->
+
 <section class="services" id="services">
   <div class="container">
     <div class="section-head reveal">
@@ -1864,7 +1838,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== PROJECT GALLERY (recent work) =================== -->
+
 <section class="gallery" id="projects">
   <div class="container">
     <div class="section-head reveal">
@@ -1940,7 +1914,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== WHY CHOOSE US =================== -->
+
 <section class="why" id="why">
   <div class="container">
     <div class="why-wrap">
@@ -1995,7 +1969,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== REVIEWS =================== -->
+
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="section-head reveal">
@@ -2107,7 +2081,7 @@ footer {
 </section>
 
 
-<!-- =================== ABOUT / MEET THE OWNER =================== -->
+
 <section class="about-owner" id="about-owner">
   <div class="container">
     <div class="about-owner-grid">
@@ -2156,7 +2130,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== AREAS COVERED =================== -->
+
 <section class="areas" id="areas">
   <div class="container">
     <div class="areas-grid">
@@ -2185,7 +2159,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== PROCESS =================== -->
+
 <section class="process-home" id="process">
   <div class="container">
     <div class="section-head reveal" style="margin: 0 auto 48px; text-align: center;">
@@ -2218,7 +2192,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== CONTACT FORM =================== -->
+
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-wrap">
@@ -2329,7 +2303,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== FINAL CTA =================== -->
+
 <section class="final-cta">
   <div class="final-cta-bg"></div>
   <div class="final-cta-overlay"></div>
@@ -2349,7 +2323,7 @@ footer {
   </div>
 </section>
 
-<!-- =================== FOOTER =================== -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -2415,29 +2389,29 @@ footer {
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
+
 <a href="https://wa.me/447966207758" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg>
 </a>
 
 <script>
-// Navbar shadow on scroll
+
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 8) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 });
 
-// Mobile menu toggle
+
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
 mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-// Year
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Hero slider
+
 (function() {
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
@@ -2461,15 +2435,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
     dot.addEventListener('click', () => {
       const idx = parseInt(dot.dataset.target, 10);
       show(idx);
-      start(); // restart timer after manual click
+      start();
     });
   });
 
-  // Pause on hover (desktop)
+
   hero.addEventListener('mouseenter', stop);
   hero.addEventListener('mouseleave', start);
 
-  // Pause when tab is hidden
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stop(); else start();
   });
@@ -2477,7 +2451,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   start();
 })();
 
-// Working-hours utility indicator (optional, polite)
+
 (function() {
   const day = new Date().getDay();
   const hour = new Date().getHours();
@@ -2496,7 +2470,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 })();
 
-// Contact form → Web3Forms async submit (no page reload, inline feedback)
+
 (function() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -2513,12 +2487,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
     result.textContent = '';
     result.className = 'form-result';
 
-    // Copy the user's email into the replyto hidden so Kevin can hit Reply
+
     const emailInput = form.querySelector('input[name="email"]');
     const replyto = form.querySelector('input[name="replyto"]');
     if (emailInput && replyto) replyto.value = emailInput.value.trim();
 
-    // Build subject from the selected service for better email triage
+
     const service = form.querySelector('[name="service"]').value;
     if (service) {
       let h = form.querySelector('input[name="subject"]');
@@ -2552,7 +2526,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   });
 })();
 
-// Reveal on scroll
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -2565,7 +2539,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <script>
-// Reviews slider — prev/next on desktop, swipe on mobile (native scroll-snap)
+
 (function() {
   const sliders = document.querySelectorAll('.reviews-slider');
   sliders.forEach(slider => {
@@ -2576,7 +2550,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     if (!track || !prev || !next) return;
 
     const updateState = () => {
-      // Hide controls when no scrolling needed
+
       const overflows = track.scrollWidth > track.clientWidth + 2;
       if (controls) controls.classList.toggle('hidden', !overflows);
       prev.disabled = track.scrollLeft <= 10;
@@ -2600,7 +2574,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 </script>
 <script>
-// Before/After slider — pointer-driven reveal handle
+
 (function() {
   const sliders = document.querySelectorAll('.ba-slider');
   sliders.forEach(slider => {
@@ -2618,9 +2592,9 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     };
 
     const sizeBeforeImg = () => {
-      // The before image inside .ba-mask-before is sized in `vw` by default;
-      // we explicitly size it to the slider's actual width so the visible
-      // slice always aligns pixel-perfect with the after image behind it.
+
+
+
       if (beforeImg) beforeImg.style.width = slider.clientWidth + 'px';
     };
 
@@ -2632,7 +2606,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       setPct(pct);
     };
 
-    // Pointer events cover mouse / touch / pen
+
     slider.addEventListener('pointerdown', (e) => {
       dragging = true;
       slider.setPointerCapture(e.pointerId);
@@ -2652,13 +2626,13 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     slider.addEventListener('pointercancel', endDrag);
     slider.addEventListener('pointerleave', endDrag);
 
-    // Click anywhere jumps the handle there (without dragging)
-    // (Already handled by pointerdown above.)
+
+
 
     sizeBeforeImg();
     window.addEventListener('resize', sizeBeforeImg);
 
-    // One-time hint animation on first view
+
     let played = false;
     const playHint = () => {
       if (played) return; played = true;
@@ -2682,7 +2656,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 </script>
 <script>
-// Reviews autoroll — single-card slider on the home
+
 (function() {
   const sliders = document.querySelectorAll('.reviews-slider--autoroll');
   sliders.forEach(slider => {
@@ -2694,7 +2668,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     const start = () => {
       stop();
       timer = setInterval(() => {
-        // If at end, snap back to start
+
         const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10;
         if (atEnd) {
           track.scrollTo({ left: 0, behavior: 'smooth' });
@@ -2718,9 +2692,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 </script>
 <script src="assets/consent.js"></script>
-<!-- Lead logger -> Google Sheet (Apps Script). fetch+keepalive+no-cors only;
-     sendBeacon silently drops the /exec 302. Not consent-gated: no cookies,
-     no identifiers - a declined banner must never cost a real enquiry. -->
+
 <script>
 (function() {
   var LEAD_URL = 'https://script.google.com/macros/s/AKfycbxOeYzWtzAgBA3MdQTg-cI0RVxOG7lEQBItV7iWH16XmldMmGly0DfyU7h3Syo8Efp5qQ/exec';

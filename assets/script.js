@@ -1,5 +1,5 @@
-// Shared JS for K. Smithurst sub-pages.
-// Nav scroll shadow, mobile toggle, year, scroll reveal, WhatsApp form.
+
+
 
 (function() {
   const nav = document.getElementById('navbar');
@@ -22,7 +22,7 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Working-hours utility
+
   const text = document.getElementById('hours-text');
   const wrap = document.getElementById('hours-display');
   if (text && wrap) {
@@ -34,7 +34,7 @@
     wrap.style.display = 'inline-flex';
   }
 
-  // Reveal on scroll
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -45,11 +45,11 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Contact form is now Web3Forms — submit handlers are inlined per page
-  // (home: in index.html, contact page: in contact/index.html) so each can
-  // bind to its <form> with full control over inline success/error UI.
 
-  // Project filter tabs (projects.html)
+
+
+
+
   const tabs = document.querySelectorAll('.proj-tab');
   if (tabs.length) {
     tabs.forEach(tab => {
@@ -65,7 +65,7 @@
   }
 })();
 
-// Reviews slider — prev/next on desktop, swipe on mobile (native scroll-snap)
+
 (function() {
   const sliders = document.querySelectorAll('.reviews-slider');
   sliders.forEach(slider => {
@@ -76,7 +76,7 @@
     if (!track || !prev || !next) return;
 
     const updateState = () => {
-      // Hide controls when no scrolling needed
+
       const overflows = track.scrollWidth > track.clientWidth + 2;
       if (controls) controls.classList.toggle('hidden', !overflows);
       prev.disabled = track.scrollLeft <= 10;
@@ -88,9 +88,9 @@
       const styles = getComputedStyle(track);
       const gap = parseFloat(styles.columnGap || styles.gap || 0);
       track.scrollBy({ left: dir * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
-      // Smooth scroll's `scroll` events don't fire reliably across browsers,
-      // so update state ourselves on a short tick + after the animation
-      // should have settled.
+
+
+
       requestAnimationFrame(updateState);
       setTimeout(updateState, 450);
     };
@@ -102,12 +102,12 @@
   });
 })();
 
-// Lead logger -> Google Sheet (Apps Script). Fires on real contact intent:
-// tel:/wa.me/mailto: clicks, review-button clicks, and quote-form submits.
-// NEVER navigator.sendBeacon here - it silently drops the /exec cross-origin
-// 302 while returning true. fetch + keepalive + no-cors + text/plain is the
-// only combination that survives page unload AND avoids a CORS preflight.
-// Not consent-gated: sets no cookies, stores no identifiers.
+
+
+
+
+
+
 (function() {
   var LEAD_URL = 'https://script.google.com/macros/s/AKfycbxOeYzWtzAgBA3MdQTg-cI0RVxOG7lEQBItV7iWH16XmldMmGly0DfyU7h3Syo8Efp5qQ/exec';
 
@@ -135,8 +135,8 @@
     return 'page';
   }
 
-  // Capture phase so the row is sent before tel:/wa.me navigation tears the
-  // page down; keepalive is what lets the request survive unload.
+
+
   document.addEventListener('click', function(e) {
     var t = e.target; if (!t || !t.closest) return;
     var a = t.closest('a'); if (!a) return;
@@ -156,8 +156,8 @@
     }
   }, true);
 
-  // Quote form - capture values at submit time (the page handler resets the
-  // form on success, so grabbing them later reads back empty fields).
+
+
   document.addEventListener('submit', function(e) {
     var f = e.target;
     if (!f || f.id !== 'contactForm') return;
@@ -173,7 +173,7 @@
   }, true);
 })();
 
-// Before/After slider — pointer-driven reveal handle
+
 (function() {
   const sliders = document.querySelectorAll('.ba-slider');
   sliders.forEach(slider => {
@@ -191,9 +191,9 @@
     };
 
     const sizeBeforeImg = () => {
-      // The before image inside .ba-mask-before is sized in `vw` by default;
-      // we explicitly size it to the slider's actual width so the visible
-      // slice always aligns pixel-perfect with the after image behind it.
+
+
+
       if (beforeImg) beforeImg.style.width = slider.clientWidth + 'px';
     };
 
@@ -205,7 +205,7 @@
       setPct(pct);
     };
 
-    // Pointer events cover mouse / touch / pen
+
     slider.addEventListener('pointerdown', (e) => {
       dragging = true;
       slider.setPointerCapture(e.pointerId);
@@ -225,13 +225,13 @@
     slider.addEventListener('pointercancel', endDrag);
     slider.addEventListener('pointerleave', endDrag);
 
-    // Click anywhere jumps the handle there (without dragging)
-    // (Already handled by pointerdown above.)
+
+
 
     sizeBeforeImg();
     window.addEventListener('resize', sizeBeforeImg);
 
-    // One-time hint animation on first view
+
     let played = false;
     const playHint = () => {
       if (played) return; played = true;
